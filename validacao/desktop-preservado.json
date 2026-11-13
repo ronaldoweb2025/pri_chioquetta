@@ -1,0 +1,17 @@
+[
+  {
+    "width": 768,
+    "same_dimensions": true,
+    "pixel_identical": true
+  },
+  {
+    "width": 1280,
+    "same_dimensions": true,
+    "pixel_identical": true
+  },
+  {
+    "width": 1440,
+    "same_dimensions": true,
+    "pixel_identical": true
+  }
+]

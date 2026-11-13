@@ -41,6 +41,8 @@ try {
       heroSrc:document.querySelector('.hero-image img').currentSrc,
       heroTop:document.querySelector('.hero-image').getBoundingClientRect().top,
       heroCopyBottom:document.querySelector('.hero-copy').getBoundingClientRect().bottom,
+      heroPhotoBottom:document.querySelector('.hero-image').getBoundingClientRect().bottom,
+      contactTop:document.querySelector('.contact').getBoundingClientRect().top,
       brokerTop:document.querySelector('.broker').getBoundingClientRect().top,
       heroHeight:document.querySelector('.hero').getBoundingClientRect().height,
       creci:document.querySelector('.broker-credentials').textContent,
@@ -52,11 +54,17 @@ try {
     assert.ok(initial.heroSrc.includes('itapema-santa-catarina')&&initial.heroSrc.endsWith('.webp'));
     assert.equal(initial.imageFit,'cover');
     assert.ok(initial.creci.includes('Priscila Charlise Chioquetta')&&initial.creci.includes('78854F'));
-    if(width<768){assert.ok(initial.heroTop>=initial.heroCopyBottom-1);assert.ok(initial.brokerTop>=initial.heroTop);}
+    if(width<768){
+      assert.ok(initial.brokerTop>=initial.heroCopyBottom-1);
+      assert.ok(initial.heroTop>initial.brokerTop);
+      assert.ok(Math.abs(initial.heroPhotoBottom-initial.contactTop)<=1,'Foto imediatamente antes do formulário');
+      assert.ok(await page.locator('.hero-copy').evaluate(el=>getComputedStyle(el).borderRadius==='12px'));
+      assert.ok(await page.locator('.hero h1').evaluate(el=>parseFloat(getComputedStyle(el).fontSize)<=25));
+    }
     assert.equal(await page.locator('h1').count(),1);
     assert.equal(await page.locator('meta[property="og:image"]').count(),1);
     assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'),'noindex, nofollow');
-    assert.equal(await page.locator('.hero .button').textContent(),'Quero conhecer as oportunidades');
+    assert.equal(await page.locator('.hero .button').innerText(),width<768?'Quero conversar com a Pri':'Quero conhecer as oportunidades');
     assert.equal(await page.locator('[name="utm_campaign"]').inputValue(),'itapema_teste');
     await page.screenshot({path:path.join(out,`hero-${width}.png`)});
     // Despertar imagens lazy antes das capturas completas e conferir sua decodificação.

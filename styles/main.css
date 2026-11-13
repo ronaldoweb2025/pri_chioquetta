@@ -8,3 +8,22 @@
 /* Quebras editoriais da referência aprovada, apenas em telas amplas. */
 @media(min-width:1101px){.hero-title-line{display:block}.hero-copy{padding-bottom:13px}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.mobile-content,.mobile-location-icon{display:none}
+/* Ajuste solicitado: cartão compacto e panorama antes do formulário só no mobile. */
+@media(max-width:767px){
+  #conteudo{display:flex;flex-direction:column}
+  .hero{display:contents}
+  .hero-copy{order:0;margin:0 16px;padding:17px 12px 12px;background:var(--petrol);border-radius:12px;gap:0;min-width:0}
+  .hero-location{display:flex;align-items:center;gap:8px;font-size:14px;letter-spacing:0;margin-bottom:16px}
+  .mobile-location-icon{display:block;width:18px;height:18px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .hero h1{font-family:var(--body);font-size:clamp(23px,5.6vw,25px);font-weight:700;line-height:1.3;letter-spacing:-.015em;max-width:none}
+  .hero-description{font-size:16px;line-height:1.5;margin-top:14px;max-width:none}
+  .hero .button{min-height:50px;width:100%;margin-top:14px;padding:12px 14px;font-size:16px;font-weight:600}
+  .hero-note{display:none}
+  .hero .desktop-content{display:none}
+  .hero .mobile-content{display:inline}
+  .broker{order:1}.property{order:2}.gallery-section{order:3}.region{order:4}
+  .hero-image{order:5;min-height:0;width:100%}
+  .hero-image img{width:100%;height:auto;aspect-ratio:1.6;object-fit:cover;object-position:50% 55%}
+  .contact{order:6}
+}

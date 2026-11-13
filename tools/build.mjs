@@ -29,14 +29,15 @@ const c = config;
 if (c.form.mode !== 'preview') throw new Error('Integração não aprovada: esta versão suporta somente o modo preview.');
 if (!c.gallery.items.length) throw new Error('Inclua ao menos uma imagem aprovada na galeria.');
 const canonical = new URL('/', c.seo.siteUrl).href;
-const cta = light => `<a class="button button-${light ? 'light' : 'dark'}" href="${escape(safeLink(c.cta.href))}">${escape(c.cta.label)}</a>`;
+const responsiveText = (desktop, mobile) => mobile ? `<span class="desktop-content">${escape(desktop)}</span><span class="mobile-content">${escape(mobile)}</span>` : escape(desktop);
+const cta = (light, mobileLabel) => `<a class="button button-${light ? 'light' : 'dark'}" href="${escape(safeLink(c.cta.href))}">${responsiveText(c.cta.label, mobileLabel)}</a>`;
 const options = items => items.map(item => `<option value="${escape(item)}">${escape(item)}</option>`).join('');
 const replacements = {
   pageTitle: escape(c.seo.title), description: escape(c.seo.description), robots: c.seo.allowIndexing ? 'index, follow' : 'noindex, nofollow',
   canonical: escape(canonical), ogImage: escape(new URL(localAsset(c.seo.ogImage), canonical).href), heroAlt: escape(c.hero.image.alt),
   brandName: escape(c.brand.name), brandSubtitle: escape(c.brand.subtitle), brandTagline: escape(c.brand.tagline),
-  location: escape(c.hero.location), heroTitle: c.hero.desktopTitleLines?.join(' ') === c.hero.title ? c.hero.desktopTitleLines.map(line => `<span class="hero-title-line">${escape(line)}</span>`).join(' ') : escape(c.hero.title), heroDescription: escape(c.hero.description), heroNote: escape(c.hero.note),
-  heroImage: picture(c.hero.image, '(max-width: 767px) 100vw, (max-width: 1100px) 1200px, 100vw', true), heroCta: cta(true),
+  location: escape(c.hero.location), heroTitle: c.hero.desktopTitleLines?.join(' ') === c.hero.title ? c.hero.desktopTitleLines.map(line => `<span class="hero-title-line">${escape(line)}</span>`).join(' ') : escape(c.hero.title), heroDescription: responsiveText(c.hero.description, c.hero.mobile?.description), heroNote: escape(c.hero.note),
+  heroImage: picture(c.hero.image, '(max-width: 767px) 100vw, (max-width: 1100px) 1200px, 100vw', true), heroCta: cta(true, c.hero.mobile?.ctaLabel),
   values: c.motivations.map(item => `<p>${escape(item.eyebrow)}</p>`).join(''),
   brokerEyebrow: escape(c.broker.eyebrow), brokerTitle: escape(c.broker.title), brokerText: escape(c.broker.text),
   brokerName: escape(c.broker.name), brokerRole: escape(c.broker.role), brokerCreci: escape(c.broker.creci),

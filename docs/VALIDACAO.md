@@ -6,19 +6,19 @@
 
 | Largura | Carrossel visível | Toque | Overflow da página | Subrecursos iniciais |
 |---|---|---|---|---|
-| 320 px | 1 imagem(ns) | aprovado (CDP) | Não | 161.5 kB |
-| 375 px | 1 imagem(ns) | aprovado (CDP) | Não | 161.5 kB |
-| 430 px | 1 imagem(ns) | aprovado (CDP) | Não | 161.5 kB |
-| 768 px | 2 imagem(ns) | não aplicável | Não | 281.6 kB |
-| 1280 px | 2 imagem(ns) | não aplicável | Não | 281.6 kB |
-| 1440 px | 2 imagem(ns) | não aplicável | Não | 453.8 kB |
+| 320 px | 1 imagem(ns) | aprovado (CDP) | Não | 162.8 kB |
+| 375 px | 1 imagem(ns) | aprovado (CDP) | Não | 249.6 kB |
+| 430 px | 1 imagem(ns) | aprovado (CDP) | Não | 249.6 kB |
+| 768 px | 2 imagem(ns) | não aplicável | Não | 282.9 kB |
+| 1280 px | 2 imagem(ns) | não aplicável | Não | 282.9 kB |
+| 1440 px | 2 imagem(ns) | não aplicável | Não | 455.1 kB |
 
 Os valores de recursos são `encodedBodySize` dos subrecursos observados na primeira tela, antes do percurso pela página; não incluem o HTML (16,5 kB), cabeçalhos ou efeitos de compressão em produção. Incluem possíveis antecipações de imagens lazy do navegador. Não são nota Lighthouse nem medição em rede móvel.
 
 ## Verificações aprovadas
 
 - Seis larguras sem overflow horizontal da página, inclusive depois das interações.
-- Hero com foto WebP e `object-fit: cover`; no mobile a foto vem imediatamente depois do bloco de texto/CTA e antes da Pri.
+- Mobile com cartão inicial compacto, ícone de localização e CTA “Quero conversar com a Pri”; foto WebP com `object-fit: cover` imediatamente antes do formulário. Tablet e desktop preservados, com comparação de pixels nas larguras 768, 1280 e 1440.
 - Identificação completa, profissão e CRECI presentes; retrato profissional no lugar da captura de Instagram.
 - Três imagens da seleção anterior; duas por tela a partir de 768 px e uma abaixo desse limite.
 - Setas, estados inicial/final e navegação por teclado (esquerda/direita, Home/End).

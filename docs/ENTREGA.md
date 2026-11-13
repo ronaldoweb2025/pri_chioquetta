@@ -8,7 +8,7 @@ Primeira landing page funcional criada na pasta `C:\Users\Usuario\Documents\A- C
 
 Abrir `dist/index.html` no navegador ou executar `node tools/serve.mjs` nessa pasta e acessar o endereço local impresso. Para editar os dados e reconstruir: `config.js` e `node tools/build.mjs`.
 
-A referência desktop foi preservada em cores, tipografia, hero dividido, título com quebras editoriais, apresentação pessoal, fachada vertical e encerramento com formulário. O hero mobile apresenta a foto da cidade imediatamente após texto e CTA. A captura provisória de Instagram foi substituída pelo retrato profissional disponível para revisão, com nome completo, profissão e CRECI informados pelo usuário.
+A referência desktop foi preservada em cores, tipografia, hero dividido, título com quebras editoriais, apresentação pessoal, fachada vertical e encerramento com formulário. Após o ajuste solicitado, o hero mobile usa cartão compacto com título menor, localização com ícone e CTA “Quero conversar com a Pri”. A foto da cidade aparece imediatamente acima do formulário, apenas no mobile. A captura provisória de Instagram foi substituída pelo retrato profissional disponível para revisão, com nome completo, profissão e CRECI informados pelo usuário.
 
 ## Arquivos criados e alterados
 
@@ -21,7 +21,7 @@ O build gera `dist/index.html`, CSS, JS, assets, robots, sitemap e rotas da Func
 ## Comportamento entregue
 
 - Carrossel com três imagens, duas visíveis a partir de 768 px e uma no mobile, sem autoplay; setas laterais, limites, movimento suave, teclado e toque nativo. Legendas e aviso de perspectivas ilustrativas preservados.
-- CTA consistente: “Quero conhecer as oportunidades”.
+- CTA padrão: “Quero conhecer as oportunidades”; no cartão inicial mobile, “Quero conversar com a Pri”, conforme a referência enviada.
 - Formulário com quatro dados principais, consentimento desmarcado e qualificação opcional expansível. Nenhuma faixa de preço inventada.
 - Nenhuma integração ativa, falso recibo de lead, Pixel, cookie, POST ou armazenamento no navegador. A validação é local e explicitamente identificada como prévia.
 - Configuração centralizada para marca, corretora, CRECI, imóvel, imagens, legendas, contatos, links, textos e CTA; HTML renderizado no build para leitura sem JavaScript e SEO.
