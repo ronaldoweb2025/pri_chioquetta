@@ -14,3 +14,14 @@
 /.wrangler/
 Thumbs.db
 .DS_Store
+
+# Arquivos locais e sensíveis
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.wrangler/
+node_modules/
+validacao/
