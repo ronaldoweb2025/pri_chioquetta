@@ -86,7 +86,7 @@
     <section id="interesse" class="contact" aria-labelledby="contact-title">
       <div class="contact-inner container">
         <div class="contact-copy"><h2 id="contact-title">{{formTitle}}</h2><p>{{formText}}</p></div>
-        <form id="interest-form" class="interest-form" data-mode="preview" data-endpoint="{{formEndpoint}}">
+        <form id="interest-form" class="interest-form" data-mode="{{formMode}}" data-endpoint="{{formEndpoint}}" data-success="{{successMessage}}" data-error="{{errorMessage}}" data-sending="{{sendingLabel}}">
           <p class="form-preview-note" id="form-preview-note">{{previewNote}}</p>
           <div class="form-grid">
             <div class="field"><label for="name">Nome <span aria-hidden="true">*</span></label><input id="name" name="name" autocomplete="name" maxlength="100" required></div>
@@ -100,19 +100,20 @@
           </div></details>
           <label class="consent" for="consent"><input id="consent" name="consent" type="checkbox" required><span>{{consent}} <a href="#privacidade" data-privacy-open>Informações de privacidade</a>.</span></label>
           <input type="hidden" name="consent_version" value="{{consentVersion}}">
+          <div hidden aria-hidden="true"><label for="website">Deixe este campo vazio</label><input id="website" name="website" type="text" autocomplete="off" tabindex="-1" maxlength="200"></div>
           <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term">
           <button class="button button-dark form-submit" type="submit" aria-describedby="form-preview-note" disabled>{{ctaLabel}}</button>
           <p class="form-result" role="status" tabindex="-1" data-message="{{previewResult}}" hidden></p>
-          <noscript><p class="no-script-note">Esta prévia não envia dados. Ative o JavaScript para testar a validação dos campos.</p></noscript>
+          <noscript><p class="no-script-note">{{noscriptMessage}}</p></noscript>
         </form>
       </div>
     </section>
   </main>
-  <footer class="site-footer container"><div><span class="footer-name">{{brandName}}</span><p>{{brokerName}} · {{brokerCreci}}</p></div>{{whatsappLink}}<a href="#privacidade" data-privacy-open>Privacidade nesta prévia</a></footer>
+  <footer class="site-footer container"><div><span class="footer-name">{{brandName}}</span><p>{{brokerName}} · {{brokerCreci}}</p></div>{{whatsappLink}}<a href="#privacidade" data-privacy-open>{{privacyTitle}}</a></footer>
   <section id="privacidade" class="privacy-section container" aria-labelledby="privacy-title">
-    <h2 id="privacy-title">Privacidade nesta prévia</h2>
-    <p>Este site está em fase de aprovação. O formulário permite testar o preenchimento, mas não envia nem armazena dados. Não há Google Sheets, Pixel, cookies de rastreamento ou atendimento automático ativos.</p>
-    <p>Antes da captação real, serão definidos o responsável pelo tratamento, as finalidades, o prazo de retenção, o canal para exercício de direitos e os fornecedores utilizados. O texto definitivo da política e o consentimento serão revisados antes da ativação.</p>
+    <h2 id="privacy-title">{{privacyTitle}}</h2>
+    <p>{{privacyIntro}}</p>
+    <p>{{privacyDetails}}</p>
   </section>
 </body>
 </html>

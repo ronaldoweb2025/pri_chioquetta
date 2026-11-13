@@ -73,6 +73,11 @@ export default {
     text: 'Compartilhe seus planos de moradia, férias ou investimento para preparar uma conversa com a Pri.',
     mode: 'preview',
     endpoint: '/api/leads',
+    // Alterar para live somente com secrets, Apps Script e publicação autorizados.
+    liveNote: 'Seus dados serão usados para atender ao interesse informado.',
+    successMessage: 'Recebemos seu interesse. A Pri fará contato pelo WhatsApp informado.',
+    errorMessage: 'Não foi possível confirmar o envio agora. Seus dados continuam preenchidos. Tente novamente em instantes.',
+    sendingLabel: 'Enviando…',
     countries: ['Portugal', 'Brasil', 'Itália', 'Espanha', 'França', 'Alemanha', 'Reino Unido', 'Irlanda', 'Suíça', 'Estados Unidos', 'Canadá', 'Outro país'],
     objectives: ['Moradia', 'Férias', 'Investimento', 'Ainda estou avaliando'],
     // Definir faixas reais com a Pri antes da captação. Sem valores comerciais inventados.
