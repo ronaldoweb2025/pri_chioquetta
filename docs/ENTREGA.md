@@ -8,7 +8,7 @@ Primeira landing page funcional criada na pasta `C:\Users\Usuario\Documents\A- C
 
 Abrir `dist/index.html` no navegador ou executar `node tools/serve.mjs` nessa pasta e acessar o endereço local impresso. Para editar os dados e reconstruir: `config.js` e `node tools/build.mjs`.
 
-A referência desktop foi preservada em cores, tipografia, hero dividido, título com quebras editoriais, apresentação pessoal, fachada vertical e encerramento com formulário. O cabeçalho mobile foi restaurado ao estilo inicial a pedido do usuário. A foto de Itapema aparece dentro da seção de contato, entre a chamada e os campos, apenas no mobile; não se repete sob o Hero nesse tamanho. O CTA do Hero mobile está compacto e centralizado. A captura provisória de Instagram foi substituída pelo retrato profissional disponível para revisão, com nome completo, profissão e CRECI informados pelo usuário.
+A referência desktop foi preservada em cores, tipografia, hero dividido, título com quebras editoriais, apresentação pessoal, fachada vertical e encerramento com formulário. O cabeçalho mobile foi restaurado ao estilo inicial a pedido do usuário. A foto de Itapema aparece imediatamente antes da seção Conheça a Pri, sem repetição dentro da seção de contato. A frase de atendimento está centralizada no mobile. O CTA do Hero mobile está compacto e centralizado. A captura provisória de Instagram foi substituída pelo retrato profissional disponível para revisão, com nome completo, profissão e CRECI informados pelo usuário.
 
 ## Arquivos criados e alterados
 

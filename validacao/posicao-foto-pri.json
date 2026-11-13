@@ -1,0 +1,56 @@
+[
+  {
+    "width": 320,
+    "overflow": false,
+    "photoHeight": 213.328125,
+    "photoBottom": 837.90625,
+    "brokerTop": 837.90625,
+    "noteAlign": "center",
+    "contactImages": 0
+  },
+  {
+    "width": 375,
+    "overflow": false,
+    "photoHeight": 234.375,
+    "photoBottom": 773.453125,
+    "brokerTop": 773.453125,
+    "noteAlign": "center",
+    "contactImages": 0
+  },
+  {
+    "width": 430,
+    "overflow": false,
+    "photoHeight": 268.75,
+    "photoBottom": 825.734375,
+    "brokerTop": 825.734375,
+    "noteAlign": "center",
+    "contactImages": 0
+  },
+  {
+    "width": 768,
+    "overflow": false,
+    "photoHeight": 689.34375,
+    "photoBottom": 801.34375,
+    "brokerTop": 901.34375,
+    "noteAlign": "start",
+    "contactImages": 0
+  },
+  {
+    "width": 1280,
+    "overflow": false,
+    "photoHeight": 630,
+    "photoBottom": 742,
+    "brokerTop": 842,
+    "noteAlign": "start",
+    "contactImages": 0
+  },
+  {
+    "width": 1440,
+    "overflow": false,
+    "photoHeight": 630.765625,
+    "photoBottom": 742.765625,
+    "brokerTop": 842.765625,
+    "noteAlign": "start",
+    "contactImages": 0
+  }
+]

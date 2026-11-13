@@ -52,7 +52,6 @@ const replacements = {
   regionTitle: escape(c.regionTitle),
   motivations: c.motivations.map(item => `<div><h3>${escape(item.title)}</h3><p>${escape(item.text)}</p></div>`).join(''),
   formTitle: escape(c.form.title), formText: escape(c.form.text), formEndpoint: escape(c.form.endpoint), previewNote: escape(c.form.previewNote), previewResult: escape(c.form.previewResult),
-  contactImage: picture(c.form.image || c.hero.image, '(max-width: 767px) 100vw, 1px'),
   countries: options(c.form.countries), objectives: options(c.form.objectives), investments: options(c.form.investmentRanges), interests: options(c.form.interests),
   consent: escape(c.form.consent), consentVersion: escape(c.form.consentVersion), ctaLabel: escape(c.cta.label)
 };

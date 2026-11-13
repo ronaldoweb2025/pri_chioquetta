@@ -54,19 +54,17 @@ try {
     assert.equal(initial.imageFit,'cover');
     assert.ok(initial.creci.includes('Priscila Charlise Chioquetta')&&initial.creci.includes('78854F'));
     if(width<768){
-      assert.equal(await page.locator('.hero-image').isVisible(),false);
-      assert.ok(initial.brokerTop>=initial.heroCopyBottom-1);
+      assert.equal(await page.locator('.hero-image').isVisible(),true);
+      const panorama=await page.locator('.hero-image').boundingBox();
+      assert.ok(panorama.height>=180);
+      assert.ok(Math.abs(panorama.y+panorama.height-initial.brokerTop)<=1);
+      assert.equal(await page.locator('.hero-note').evaluate(el=>getComputedStyle(el).textAlign),'center');
       const cta=await page.locator('.hero .button').evaluate(el=>({width:el.getBoundingClientRect().width,height:el.getBoundingClientRect().height,available:el.parentElement.clientWidth-parseFloat(getComputedStyle(el.parentElement).paddingLeft)-parseFloat(getComputedStyle(el.parentElement).paddingRight)}));
       assert.ok(cta.width<cta.available);assert.ok(cta.height>=46);
     }
     assert.equal(await page.locator('.brand-subtitle').innerText(),'CORRETORA DE IMÓVEIS EM ITAPEMA');
     assert.equal(await page.locator('.brand-creci').innerText(),'CRECI-SC 78854F');
-    const contactPhoto=await page.locator('.contact-panorama').evaluate(el=>{
-      const box=el.getBoundingClientRect();
-      return {height:box.height,top:box.top,bottom:box.bottom,formTop:document.querySelector('#interest-form').getBoundingClientRect().top,copyBottom:document.querySelector('.contact-copy').getBoundingClientRect().bottom};
-    });
-    if(width<768){assert.ok(contactPhoto.height>=180);assert.ok(contactPhoto.top>=contactPhoto.copyBottom);assert.ok(contactPhoto.bottom<=contactPhoto.formTop);}
-    else{assert.equal(contactPhoto.height,0);}
+    assert.equal(await page.locator('.contact-panorama').count(),0);
     assert.equal(await page.locator('h1').count(),1);
     assert.equal(await page.locator('meta[property="og:image"]').count(),1);
     assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'),'noindex, nofollow');
