@@ -80,3 +80,11 @@ Não executar push, abrir PR, conectar Cloudflare ou publicar sem aprovação do
 - Autorizar separadamente push/PR e configuração de Cloudflare Pages. Uma prévia remota não foi criada nesta etapa.
 
 As capturas foram feitas em navegador real nas seis larguras solicitadas. O teste de toque usa emulação CDP do Chromium, não aparelho físico. Os números de desempenho local não são uma nota Lighthouse nem uma garantia em rede móvel. Ver [docs/VALIDACAO.md](docs/VALIDACAO.md).
+
+## Teste local com Cloudflare Pages Functions
+
+A compatibilidade foi validada com Wrangler 4.161.0 (devDependency travada no lockfile), incluindo workerd, recursos estáticos, headers e a Function desativada. Requer Node >=22.12.0.
+
+Na pasta do projeto, executar `npm.cmd ci` uma vez e `npm.cmd run preview:cloudflare`. Abrir http://127.0.0.1:8788/ e encerrar com Ctrl+C. O comando já executa o build. `npm.cmd run preview` é apenas a prévia estática; o teste completo de Pages usa `preview:cloudflare`.
+
+Ver `docs/VERIFICACAO-CLOUDFLARE.md` para os resultados, comandos e limitações. Nenhum deploy foi feito.

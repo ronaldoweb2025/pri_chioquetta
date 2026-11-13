@@ -1,0 +1,18 @@
+[
+  {
+    "width": 375,
+    "postRequests": 0,
+    "errors": [],
+    "failed": [],
+    "formMessage": "Preenchimento validado nesta prévia. Nenhum dado foi enviado ou armazenado. O envio será ativado somente após a aprovação da integração.",
+    "result": "aprovado"
+  },
+  {
+    "width": 1440,
+    "postRequests": 0,
+    "errors": [],
+    "failed": [],
+    "formMessage": "Preenchimento validado nesta prévia. Nenhum dado foi enviado ou armazenado. O envio será ativado somente após a aprovação da integração.",
+    "result": "aprovado"
+  }
+]

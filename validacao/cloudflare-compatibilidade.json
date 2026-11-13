@@ -1,0 +1,335 @@
+{
+  "checkedAt": "2026-11-13T16:54:01.616Z",
+  "url": "http://127.0.0.1:8788/",
+  "checks": [
+    "Build em diretório temporário vazio reproduziu dist/index.html.",
+    "Functions na raiz; dist sem código privado, node_modules ou arquivos de configuração.",
+    "Rotas de Functions restritas a /api/*.",
+    "62 recursos públicos referenciados validados em disco e por HTTP no Wrangler.",
+    "CSP e X-Content-Type-Options aplicados no servidor Pages local.",
+    "Function executada pelo workerd: GET 405, POST 503, ok:false e integração desativada.",
+    "Formulário compilado permanece em modo preview e não afirma recebimento de lead."
+  ],
+  "assets": [
+    {
+      "path": "assets/images/compartilhamento-itapema.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/favicon.svg",
+      "status": 200,
+      "contentType": "image/svg+xml"
+    },
+    {
+      "path": "styles/main.css",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8"
+    },
+    {
+      "path": "scripts/main.js",
+      "status": 200,
+      "contentType": "application/javascript"
+    },
+    {
+      "path": "assets/images/itapema-santa-catarina-640.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/itapema-santa-catarina-1280.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/itapema-santa-catarina-1920.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/itapema-santa-catarina-1280.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/itapema-santa-catarina-640.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/itapema-santa-catarina-1920.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/priscila-chioquetta-retrato-480.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/priscila-chioquetta-retrato-960.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/priscila-chioquetta-retrato-960.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/priscila-chioquetta-retrato-480.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/galileu-externa-diurna-rf-640.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/galileu-externa-diurna-rf-1280.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/galileu-externa-diurna-rf-1920.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/galileu-externa-diurna-rf-1280.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/galileu-externa-diurna-rf-640.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/galileu-externa-diurna-rf-1920.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/piscina-a-02-640.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/piscina-a-02-1280.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/piscina-a-02-1920.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/piscina-a-02-1280.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/piscina-a-02-640.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/piscina-a-02-1920.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/living-a-01-640.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/living-a-01-1280.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/living-a-01-1920.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/living-a-01-1280.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/living-a-01-640.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/living-a-01-1920.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/sacada-02-a-01-640.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/sacada-02-a-01-1280.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/sacada-02-a-01-1920.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/sacada-02-a-01-1280.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/sacada-02-a-01-640.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/sacada-02-a-01-1920.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/suite-a-01-640.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/suite-a-01-1280.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/suite-a-01-1920.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/suite-a-01-1280.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/suite-a-01-640.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/suite-a-01-1920.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/salao-de-festas-a-02-640.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/salao-de-festas-a-02-1280.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/salao-de-festas-a-02-1920.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/salao-de-festas-a-02-1280.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/salao-de-festas-a-02-640.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/salao-de-festas-a-02-1920.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/sala-de-jogos-a-02-640.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/sala-de-jogos-a-02-1280.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/sala-de-jogos-a-02-1920.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/sala-de-jogos-a-02-1280.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/sala-de-jogos-a-02-640.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/sala-de-jogos-a-02-1920.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/brinquedoteca-a-02-640.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/brinquedoteca-a-02-1280.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/brinquedoteca-a-02-1920.webp",
+      "status": 200,
+      "contentType": "image/webp"
+    },
+    {
+      "path": "assets/images/brinquedoteca-a-02-1280.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/brinquedoteca-a-02-640.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    },
+    {
+      "path": "assets/images/brinquedoteca-a-02-1920.jpg",
+      "status": 200,
+      "contentType": "image/jpeg"
+    }
+  ],
+  "api": {
+    "getStatus": 405,
+    "postStatus": 503,
+    "postBody": {
+      "ok": false,
+      "code": "integration_not_enabled",
+      "message": "O envio ainda não está disponível. Nenhum lead foi registrado."
+    }
+  },
+  "result": "aprovado"
+}
