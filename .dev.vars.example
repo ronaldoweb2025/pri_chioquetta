@@ -1,7 +1,8 @@
-# Nomes propostos para a implementação futura; nenhum segredo real neste arquivo.
-# A rota atual permanece desativada independentemente desses valores.
-SHEETS_SPREADSHEET_ID=
-GOOGLE_SERVICE_ACCOUNT_EMAIL=
-GOOGLE_PRIVATE_KEY=
-TURNSTILE_SECRET_KEY=
-# A persistência durável e os bindings precisam de aprovação e provisionamento.
+# Copiar para .dev.vars somente para um teste local explicitamente autorizado.
+# Nunca versionar .dev.vars. Não colocar esses valores em config.js ou no navegador.
+LEADS_ENABLED=false
+APPS_SCRIPT_URL=
+LEADS_SHARED_SECRET=
+# Opcional: origens exatas, separadas por vírgula. Sem curinga.
+# Se ausente, aceita somente a origem do próprio endpoint.
+ALLOWED_ORIGINS=http://127.0.0.1:8788
