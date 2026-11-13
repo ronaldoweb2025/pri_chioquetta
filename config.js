@@ -71,7 +71,7 @@ export default {
   form: {
     title: 'Conte à Pri o que você procura.',
     text: 'Compartilhe seus planos de moradia, férias ou investimento para preparar uma conversa com a Pri.',
-    mode: 'preview',
+    mode: 'live',
     endpoint: '/api/leads',
     // Alterar para live somente com secrets, Apps Script e publicação autorizados.
     liveNote: 'Seus dados serão usados para atender ao interesse informado.',
