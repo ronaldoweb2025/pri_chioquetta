@@ -34,7 +34,7 @@
   <main id="conteudo">
     <section id="inicio" class="hero" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <p class="eyebrow hero-location"><svg class="mobile-location-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>{{location}}</p>
+        <p class="eyebrow hero-location">{{location}}</p>
         <h1 id="hero-title">{{heroTitle}}</h1>
         <p class="hero-description">{{heroDescription}}</p>
         {{heroCta}}
@@ -86,6 +86,7 @@
     <section id="interesse" class="contact" aria-labelledby="contact-title">
       <div class="contact-inner container">
         <div class="contact-copy"><h2 id="contact-title">{{formTitle}}</h2><p>{{formText}}</p></div>
+        <div class="contact-panorama">{{contactImage}}</div>
         <form id="interest-form" class="interest-form" data-mode="preview" data-endpoint="{{formEndpoint}}">
           <p class="form-preview-note" id="form-preview-note">{{previewNote}}</p>
           <div class="form-grid">

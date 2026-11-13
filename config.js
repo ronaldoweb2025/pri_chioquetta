@@ -16,10 +16,6 @@ export default {
     desktopTitleLines: ['Seu próximo', 'capítulo no Brasil', 'pode começar', 'em Itapema.'],
     description: 'Para suas férias, seus planos de morar ou investir em um imóvel no Brasil.',
     note: 'Mora fora do Brasil? Vamos conversar.',
-    mobile: {
-      description: 'Para suas férias, seus planos de morar ou sua busca por um imóvel no Brasil.',
-      ctaLabel: 'Quero conversar com a Pri'
-    },
     image: {
       name: 'itapema-santa-catarina', widths: [640, 1280, 1920], width: 6875, height: 4583,
       alt: 'Panorama da orla de Itapema, com praia, edifícios e mar.',

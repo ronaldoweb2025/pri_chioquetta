@@ -41,8 +41,6 @@ try {
       heroSrc:document.querySelector('.hero-image img').currentSrc,
       heroTop:document.querySelector('.hero-image').getBoundingClientRect().top,
       heroCopyBottom:document.querySelector('.hero-copy').getBoundingClientRect().bottom,
-      heroPhotoBottom:document.querySelector('.hero-image').getBoundingClientRect().bottom,
-      contactTop:document.querySelector('.contact').getBoundingClientRect().top,
       brokerTop:document.querySelector('.broker').getBoundingClientRect().top,
       heroHeight:document.querySelector('.hero').getBoundingClientRect().height,
       creci:document.querySelector('.broker-credentials').textContent,
@@ -54,27 +52,27 @@ try {
     assert.ok(initial.heroSrc.includes('itapema-santa-catarina')&&initial.heroSrc.endsWith('.webp'));
     assert.equal(initial.imageFit,'cover');
     assert.ok(initial.creci.includes('Priscila Charlise Chioquetta')&&initial.creci.includes('78854F'));
-    if(width<768){
-      assert.ok(initial.brokerTop>=initial.heroCopyBottom-1);
-      assert.ok(initial.heroTop>initial.brokerTop);
-      assert.ok(Math.abs(initial.heroPhotoBottom-initial.contactTop)<=1,'Foto imediatamente antes do formulário');
-      assert.ok(await page.locator('.hero-copy').evaluate(el=>getComputedStyle(el).borderRadius==='12px'));
-      assert.ok(await page.locator('.hero h1').evaluate(el=>parseFloat(getComputedStyle(el).fontSize)<=25));
-    }
+    if(width<768){assert.ok(initial.heroTop>=initial.heroCopyBottom-1);assert.ok(initial.brokerTop>=initial.heroTop);}
+    const contactPhoto=await page.locator('.contact-panorama').evaluate(el=>{
+      const box=el.getBoundingClientRect();
+      return {height:box.height,top:box.top,bottom:box.bottom,formTop:document.querySelector('#interest-form').getBoundingClientRect().top,copyBottom:document.querySelector('.contact-copy').getBoundingClientRect().bottom};
+    });
+    if(width<768){assert.ok(contactPhoto.height>=180);assert.ok(contactPhoto.top>=contactPhoto.copyBottom);assert.ok(contactPhoto.bottom<=contactPhoto.formTop);}
+    else{assert.equal(contactPhoto.height,0);}
     assert.equal(await page.locator('h1').count(),1);
     assert.equal(await page.locator('meta[property="og:image"]').count(),1);
     assert.equal(await page.locator('meta[name="robots"]').getAttribute('content'),'noindex, nofollow');
-    assert.equal(await page.locator('.hero .button').innerText(),width<768?'Quero conversar com a Pri':'Quero conhecer as oportunidades');
+    assert.equal(await page.locator('.hero .button').textContent(),'Quero conhecer as oportunidades');
     assert.equal(await page.locator('[name="utm_campaign"]').inputValue(),'itapema_teste');
     await page.screenshot({path:path.join(out,`hero-${width}.png`)});
     // Despertar imagens lazy antes das capturas completas e conferir sua decodificação.
     await page.evaluate(async()=>{
       for(let y=0;y<document.body.scrollHeight;y+=700){window.scrollTo({top:y,behavior:'instant'});await new Promise(r=>setTimeout(r,45));}
-      await Promise.all([...document.images].map(im=>im.decode()));
+      await Promise.all([...document.images].filter(im=>im.getClientRects().length>0).map(im=>im.decode()));
       window.scrollTo({top:0,behavior:'instant'});
     });
     await page.screenshot({path:path.join(out,`pagina-${width}.png`),fullPage:true});
-    const broken=await page.evaluate(()=>[...document.images].filter(im=>!im.complete||!im.naturalWidth).map(im=>im.src));
+    const broken=await page.evaluate(()=>[...document.images].filter(im=>im.getClientRects().length>0&&(!im.complete||!im.naturalWidth)).map(im=>im.src));
     assert.deepEqual(broken,[]);
     const ratio=await page.locator('.gallery-track').evaluate(el=>el.clientWidth/el.firstElementChild.getBoundingClientRect().width);
     assert.ok(width<768 ? Math.abs(ratio-1)<.02 : ratio>2 && ratio<2.15,`Número de imagens por tela em ${width}: ${ratio}`);

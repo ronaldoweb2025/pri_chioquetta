@@ -42,7 +42,7 @@ Os JPG/PNG/MP4 originais existentes na raiz foram preservados e excluídos do Gi
 1. Copiar o projeto para outra pasta/repositório, sem os originais da Pri, sem `.git` e sem `validacao`.
 2. Editar `config.js`: marca, dados profissionais, CRECI, apresentação, imóvel, textos, imagens, legendas e CTA.
 3. Adicionar as versões de imagem a `assets/images` e definir `name`, `widths`, `width`, `height` e `alt`. `name` é o nome sem tamanho e extensão: por exemplo `itapema-santa-catarina` referencia `itapema-santa-catarina-640.webp`, `-1280.webp`, `-1920.webp` e alternativas JPG.
-4. Os textos específicos do cartão mobile estão em `hero.mobile`; a foto de Itapema aparece antes do formulário apenas no mobile. Ajustar `hero.desktopTitleLines` para controlar as quebras no desktop. Se as linhas não recompõem exatamente `hero.title`, o gerador usa o título normal. No mobile a quebra é natural.
+4. No mobile, uma foto adicional de Itapema aparece entre a chamada de contato e os campos. Ela usa `form.image` quando definido ou reutiliza `hero.image`. Ajustar `hero.desktopTitleLines` para controlar as quebras no desktop. Se as linhas não recompõem exatamente `hero.title`, o gerador usa o título normal. No mobile a quebra é natural.
 5. Atualizar `seo.siteUrl` e a imagem Open Graph 1200 × 630. Essa edição de metadados não configura um domínio.
 6. Se houver WhatsApp oficial, preencher `broker.whatsapp` em formato internacional sem espaços, como `+DDINUMERO`. O link só aparece quando o valor é válido; nenhum número fictício foi cadastrado.
 7. Manter `form.mode: 'preview'` até implementar e aprovar a integração. O build rejeita outro modo nesta versão.
