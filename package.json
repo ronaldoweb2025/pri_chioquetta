@@ -1,0 +1,12 @@
+{
+  "name": "pri-chioquetta-itapema",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Landing page estática reutilizável, com formulário em modo de prévia.",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "preview": "node tools/serve.mjs",
+    "check": "node --check config.js && node --check scripts/main.js && node --check functions/api/leads.js && node --check tools/build.mjs"
+  }
+}

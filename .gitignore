@@ -1,0 +1,16 @@
+# Materiais originais na raiz: preservados localmente, fora do versionamento.
+/*.jpg
+/*.jpeg
+/*.png
+/*.mp4
+/*.pdf
+/*.zip
+/dist/
+/node_modules/
+/.dev.vars
+/.env
+/.env.*
+!/.env.example
+/.wrangler/
+Thumbs.db
+.DS_Store

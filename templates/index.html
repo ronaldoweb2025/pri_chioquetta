@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{pageTitle}}</title>
+  <meta name="description" content="{{description}}">
+  <meta name="robots" content="{{robots}}">
+  <meta name="theme-color" content="#15363d">
+  <link rel="canonical" href="{{canonical}}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="{{brandName}}">
+  <meta property="og:title" content="{{pageTitle}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{canonical}}">
+  <meta property="og:image" content="{{ogImage}}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{heroAlt}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles/main.css">
+  <script src="scripts/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="{{brandName}} — início">
+      <span class="brand-name">{{brandName}}</span><span class="brand-subtitle">{{brandSubtitle}}</span>
+    </a>
+    <p class="header-note">{{brandTagline}}</p>
+  </header>
+  <main id="conteudo">
+    <section id="inicio" class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow hero-location">{{location}}</p>
+        <h1 id="hero-title">{{heroTitle}}</h1>
+        <p class="hero-description">{{heroDescription}}</p>
+        {{heroCta}}
+        <p class="hero-note">{{heroNote}}</p>
+      </div>
+      <div class="hero-image">{{heroImage}}</div>
+    </section>
+    <div class="values-strip container" aria-label="Seus planos em Itapema">{{values}}</div>
+    <section class="broker container" aria-labelledby="broker-title">
+      <figure class="broker-portrait">{{brokerImage}}</figure>
+      <div class="broker-copy">
+        <p class="eyebrow">{{brokerEyebrow}}</p>
+        <h2 id="broker-title">{{brokerTitle}}</h2>
+        <p class="broker-description">{{brokerText}}</p>
+        <p class="broker-credentials"><strong>{{brokerName}}</strong><span>{{brokerRole}} <span aria-hidden="true">·</span> {{brokerCreci}}</span></p>
+      </div>
+    </section>
+    <section class="property" aria-labelledby="property-title">
+      <div class="property-inner container">
+        <div class="property-copy">
+          <p class="eyebrow">{{propertyEyebrow}}</p>
+          <h2 id="property-title">{{propertyName}}</h2>
+          <p class="property-description">{{propertyDescription}}</p>
+          <p class="property-highlights">{{propertyHighlights}}</p>
+          {{propertyCta}}
+          {{videoLink}}
+        </div>
+        <figure class="property-visual">{{propertyImage}}<figcaption>{{propertyCaption}}</figcaption></figure>
+      </div>
+    </section>
+    <section class="gallery-section container" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">{{galleryTitle}}</h2>
+      <div class="carousel" role="region" aria-roledescription="carrossel" aria-label="Imagens e perspectivas dos materiais apresentados">
+        <button class="carousel-arrow carousel-prev" type="button" aria-label="Imagem anterior" aria-controls="gallery-track" disabled hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 5-7 7 7 7"/></svg>
+        </button>
+        <ul id="gallery-track" class="gallery-track" tabindex="0" aria-label="Galeria: deslize ou use as setas do teclado">{{galleryItems}}</ul>
+        <button class="carousel-arrow carousel-next" type="button" aria-label="Próxima imagem" aria-controls="gallery-track" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 5 7 7-7 7"/></svg>
+        </button>
+      </div>
+      <p class="gallery-status" aria-live="polite" aria-atomic="true" hidden></p>
+      <p class="image-disclaimer">{{galleryDisclaimer}}</p>
+    </section>
+    <section class="region container" aria-labelledby="region-title">
+      <h2 id="region-title">{{regionTitle}}</h2>
+      <div class="motivations">{{motivations}}</div>
+    </section>
+    <section id="interesse" class="contact" aria-labelledby="contact-title">
+      <div class="contact-inner container">
+        <div class="contact-copy"><h2 id="contact-title">{{formTitle}}</h2><p>{{formText}}</p></div>
+        <form id="interest-form" class="interest-form" data-mode="preview" data-endpoint="{{formEndpoint}}">
+          <p class="form-preview-note" id="form-preview-note">{{previewNote}}</p>
+          <div class="form-grid">
+            <div class="field"><label for="name">Nome <span aria-hidden="true">*</span></label><input id="name" name="name" autocomplete="name" maxlength="100" required></div>
+            <div class="field"><label for="country">País onde reside <span aria-hidden="true">*</span></label><select id="country" name="country" autocomplete="country-name" required><option value="" disabled selected>Selecione</option>{{countries}}</select></div>
+            <div class="field field-full"><label for="whatsapp">WhatsApp com código internacional <span aria-hidden="true">*</span></label><input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="Ex.: +351 912 345 678" aria-describedby="phone-hint" minlength="8" maxlength="30" required><small id="phone-hint">Inclua + e o código do país do seu número, como +351 ou +55.</small></div>
+            <div class="field field-full"><label for="objective">Objetivo da compra <span aria-hidden="true">*</span></label><select id="objective" name="objective" required><option value="" disabled selected>Selecione seu objetivo</option>{{objectives}}</select></div>
+          </div>
+          <details class="optional-fields"><summary>Mais sobre seus planos <span>(opcional)</span></summary><div class="form-grid">
+            <div class="field"><label for="investment">Faixa de investimento</label><select id="investment" name="investment"><option value="">Prefiro informar depois</option>{{investments}}</select></div>
+            <div class="field"><label for="interest">Interesse principal</label><select id="interest" name="interest"><option value="">Prefiro informar depois</option>{{interests}}</select></div>
+          </div></details>
+          <label class="consent" for="consent"><input id="consent" name="consent" type="checkbox" required><span>{{consent}} <a href="#privacidade" data-privacy-open>Informações de privacidade</a>.</span></label>
+          <input type="hidden" name="consent_version" value="{{consentVersion}}">
+          <input type="hidden" name="utm_source"><input type="hidden" name="utm_medium"><input type="hidden" name="utm_campaign"><input type="hidden" name="utm_content"><input type="hidden" name="utm_term">
+          <button class="button button-dark form-submit" type="submit" aria-describedby="form-preview-note" disabled>{{ctaLabel}}</button>
+          <p class="form-result" role="status" tabindex="-1" data-message="{{previewResult}}" hidden></p>
+          <noscript><p class="no-script-note">Esta prévia não envia dados. Ative o JavaScript para testar a validação dos campos.</p></noscript>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer container"><div><span class="footer-name">{{brandName}}</span><p>{{brokerName}} · {{brokerCreci}}</p></div>{{whatsappLink}}<a href="#privacidade" data-privacy-open>Privacidade nesta prévia</a></footer>
+  <section id="privacidade" class="privacy-section container" aria-labelledby="privacy-title">
+    <h2 id="privacy-title">Privacidade nesta prévia</h2>
+    <p>Este site está em fase de aprovação. O formulário permite testar o preenchimento, mas não envia nem armazena dados. Não há Google Sheets, Pixel, cookies de rastreamento ou atendimento automático ativos.</p>
+    <p>Antes da captação real, serão definidos o responsável pelo tratamento, as finalidades, o prazo de retenção, o canal para exercício de direitos e os fornecedores utilizados. O texto definitivo da política e o consentimento serão revisados antes da ativação.</p>
+  </section>
+</body>
+</html>

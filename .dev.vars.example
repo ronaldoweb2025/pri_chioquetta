@@ -1,0 +1,7 @@
+# Nomes propostos para a implementação futura; nenhum segredo real neste arquivo.
+# A rota atual permanece desativada independentemente desses valores.
+SHEETS_SPREADSHEET_ID=
+GOOGLE_SERVICE_ACCOUNT_EMAIL=
+GOOGLE_PRIVATE_KEY=
+TURNSTILE_SECRET_KEY=
+# A persistência durável e os bindings precisam de aprovação e provisionamento.
