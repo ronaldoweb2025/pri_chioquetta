@@ -149,7 +149,7 @@ try {
   assert.equal(await rp.locator('.gallery-track').evaluate(el=>getComputedStyle(el).scrollBehavior),'auto');await reduced.close();
   results.checks.push('Preferência por movimento reduzido respeitada.');
   for(const method of ['GET','POST']){
-    const res=onRequest({request:new Request('https://example.test/api/leads',{method})});
+    const res=await onRequest({request:new Request('https://example.test/api/leads',{method})});
     assert.equal(res.status,method==='POST'?503:405);assert.equal((await res.json()).ok,false);
   }
   results.checks.push('Pages Function: GET 405 e POST 503; nenhum falso sucesso ou envio.');

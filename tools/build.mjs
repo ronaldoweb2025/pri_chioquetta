@@ -26,7 +26,8 @@ function picture(image, sizes, priority = false) {
   return `<picture><source type="image/webp" srcset="${set('webp')}" sizes="${escape(sizes)}"><img src="assets/images/${image.name}-${fallback}.jpg" srcset="${set('jpg')}" sizes="${escape(sizes)}" width="${image.width}" height="${image.height}" alt="${escape(image.alt)}" style="--image-position:${position}" ${priority ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"'} decoding="async"></picture>`;
 }
 const c = config;
-if (c.form.mode !== 'preview') throw new Error('Integração não aprovada: esta versão suporta somente o modo preview.');
+if (!['preview','live'].includes(c.form.mode)) throw new Error('Modo do formulário deve ser preview ou live.');
+if (c.form.endpoint !== '/api/leads') throw new Error('O formulário deve utilizar o endpoint intermediário da própria origem.');
 if (!c.gallery.items.length) throw new Error('Inclua ao menos uma imagem aprovada na galeria.');
 const canonical = new URL('/', c.seo.siteUrl).href;
 const cta = light => `<a class="button button-${light ? 'light' : 'dark'}" href="${escape(safeLink(c.cta.href))}">${escape(c.cta.label)}</a>`;
@@ -51,7 +52,13 @@ const replacements = {
   galleryItems: c.gallery.items.map((item, i) => `<li class="gallery-card" aria-label="${i + 1} de ${c.gallery.items.length}"><figure>${picture(item.image, '(max-width: 767px) calc(100vw - 48px), (max-width: 1100px) calc((100vw - 104px) / 2), (max-width: 1420px) calc((100vw - 184px) / 2), 618px')}<figcaption>${item.title ? `<h3>${escape(item.title)}</h3>` : ''}<p>${escape(item.caption)}</p></figcaption></figure></li>`).join('\n'),
   regionTitle: escape(c.regionTitle),
   motivations: c.motivations.map(item => `<div><h3>${escape(item.title)}</h3><p>${escape(item.text)}</p></div>`).join(''),
-  formTitle: escape(c.form.title), formText: escape(c.form.text), formEndpoint: escape(c.form.endpoint), previewNote: escape(c.form.previewNote), previewResult: escape(c.form.previewResult),
+  formTitle: escape(c.form.title), formText: escape(c.form.text), formEndpoint: escape(c.form.endpoint), formMode: escape(c.form.mode),
+  previewNote: escape(c.form.mode === 'preview' ? c.form.previewNote : c.form.liveNote), previewResult: escape(c.form.previewResult),
+  successMessage: escape(c.form.successMessage), errorMessage: escape(c.form.errorMessage), sendingLabel: escape(c.form.sendingLabel),
+  noscriptMessage: escape(c.form.mode === 'preview' ? 'Esta prévia não envia dados. Ative o JavaScript para testar a validação dos campos.' : 'Ative o JavaScript para enviar seu interesse com segurança.'),
+  privacyTitle: c.form.mode === 'preview' ? 'Privacidade nesta prévia' : 'Privacidade e atendimento',
+  privacyIntro: escape(c.form.mode === 'preview' ? 'Este site está em fase de aprovação. O formulário permite testar o preenchimento, mas não envia nem armazena dados. Não há Google Sheets, Pixel, cookies de rastreamento ou atendimento automático ativos.' : 'Os dados enviados são registrados em uma planilha privada no Google Sheets para que Priscila Charlise Chioquetta atenda ao interesse informado. O envio depende do consentimento registrado no formulário.'),
+  privacyDetails: escape(c.form.mode === 'preview' ? 'Antes da captação real, serão definidos o responsável pelo tratamento, as finalidades, o prazo de retenção, o canal para exercício de direitos e os fornecedores utilizados. O texto definitivo da política e o consentimento serão revisados antes da ativação.' : 'Para informações sobre o uso dos dados ou para solicitar sua exclusão, entre em contato com a corretora pelo canal de atendimento.'),
   countries: options(c.form.countries), objectives: options(c.form.objectives), investments: options(c.form.investmentRanges), interests: options(c.form.interests),
   consent: escape(c.form.consent), consentVersion: escape(c.form.consentVersion), ctaLabel: escape(c.cta.label)
 };

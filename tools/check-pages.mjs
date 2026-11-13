@@ -44,7 +44,7 @@ try{
   const page=await fetch(base);assert.equal(page.status,200);
   const served=await page.text();assert.equal(served,currentHtml);
   const policy=page.headers.get('content-security-policy')||'';
-  assert.ok(policy.includes("connect-src 'none'")&&policy.includes("form-action 'none'"));
+  assert.ok(policy.includes("connect-src 'self'")&&policy.includes("form-action 'none'"));
   assert.equal(page.headers.get('x-content-type-options'),'nosniff');
   report.checks.push(`${localResources.size} recursos públicos referenciados validados em disco e por HTTP no Wrangler.`,'CSP e X-Content-Type-Options aplicados no servidor Pages local.');
   const post=await fetch(new URL('/api/leads',base),{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({probe:'compatibility-check'})});

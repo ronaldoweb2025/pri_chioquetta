@@ -1,4 +1,4 @@
-// Somente interações locais. Sem fetch, armazenamento, Pixel ou integrações ativas.
+// Carrossel e formulário. Tokens e URL do Apps Script existem apenas no servidor.
 (() => {
   const track = document.querySelector('.gallery-track');
   const previous = document.querySelector('.carousel-prev');
@@ -55,6 +55,17 @@
   if (form) {
     const phone = form.elements.whatsapp;
     const result = form.querySelector('.form-result');
+    const submit = form.querySelector('[type="submit"]');
+    const startedAt = Date.now();
+    const originalLabel = submit.textContent;
+    let sending = false;
+    let submission = null;
+    function showMessage(message) {
+      result.textContent = message;
+      result.hidden = false;
+      result.focus({preventScroll:true});
+      result.scrollIntoView({block:'nearest', behavior:reduceMotion.matches ? 'instant' : 'smooth'});
+    }
     function validatePhone() {
       const value = phone.value.trim();
       // Forma internacional; não presume o DDI pelo país de residência.
@@ -70,16 +81,44 @@
       // UTMs permanecem somente na página atual; nenhuma persistência ou envio.
       form.elements.namedItem(key).value = value.replace(/[\u0000-\u001f<>]/g, '').slice(0, 200);
     }
-    form.addEventListener('submit', event => {
+    form.addEventListener('submit', async event => {
       event.preventDefault();
+      if (sending) return;
       validatePhone();
       if (!form.reportValidity()) return;
-      result.textContent = result.dataset.message;
-      result.hidden = false;
-      result.focus({preventScroll: true});
-      result.scrollIntoView({block: 'nearest', behavior: reduceMotion.matches ? 'instant' : 'smooth'});
-      // Nenhuma mensagem de lead recebido: a integração depende de aprovação.
+      if (form.dataset.mode === 'preview') { showMessage(result.dataset.message); return; }
+      if (form.dataset.mode !== 'live') { showMessage(form.dataset.error); return; }
+      const data = new FormData(form);
+      const payload = Object.fromEntries(['name','country','whatsapp','objective','investment','interest','website','consent_version','utm_source','utm_medium','utm_campaign','utm_content','utm_term'].map(key => [key, String(data.get(key) || '')]));
+      payload.consent = form.elements.consent.checked;
+      payload.started_at = startedAt;
+      // Manter o ID se a resposta se perder. Alterar dados gera uma nova operação.
+      const fingerprint = JSON.stringify(payload);
+      if (!submission || submission.fingerprint !== fingerprint) {
+        try { submission = {fingerprint, id:crypto.randomUUID()}; }
+        catch { showMessage(form.dataset.error); return; }
+      }
+      payload.request_id = submission.id;
+      sending = true; submit.disabled = true; submit.textContent = form.dataset.sending;
+      form.setAttribute('aria-busy','true'); result.hidden = true;
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 30000);
+      try {
+        const response = await fetch(form.dataset.endpoint, {method:'POST', credentials:'same-origin', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload), signal:controller.signal});
+        let receipt; try { receipt = await response.json(); } catch { receipt = null; }
+        if (response.ok && receipt?.ok === true && receipt.saved === true && receipt.request_id === payload.request_id) {
+          showMessage(form.dataset.success);
+        } else if (response.status === 429) {
+          showMessage('Você já tentou algumas vezes. Aguarde alguns minutos antes de tentar novamente. Seus dados continuam preenchidos.');
+        } else if (response.status === 422) {
+          showMessage('Confira os campos e o aceite de contato antes de tentar novamente. Seus dados continuam preenchidos.');
+        } else { showMessage(form.dataset.error); }
+      } catch { showMessage(form.dataset.error); }
+      finally {
+        clearTimeout(timer); sending = false; submit.disabled = false; submit.textContent = originalLabel;
+        form.removeAttribute('aria-busy');
+      }
     });
-    form.querySelector('[type="submit"]').disabled = false;
+    submit.disabled = false;
   }
 })();

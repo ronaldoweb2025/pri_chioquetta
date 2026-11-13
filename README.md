@@ -47,7 +47,7 @@ Os JPG/PNG/MP4 originais existentes na raiz foram preservados e excluídos do Gi
 4. No mobile, a panorâmica configurada em `hero.image` aparece imediatamente antes da seção Conheça a Pri. A frase de atendimento fica centralizada. Ajustar `hero.desktopTitleLines` para controlar as quebras no desktop. Se as linhas não recompõem exatamente `hero.title`, o gerador usa o título normal. No mobile a quebra é natural.
 5. Atualizar `seo.siteUrl` e a imagem Open Graph 1200 × 630. Essa edição de metadados não configura um domínio.
 6. Se houver WhatsApp oficial, preencher `broker.whatsapp` em formato internacional sem espaços, como `+DDINUMERO`. O link só aparece quando o valor é válido; nenhum número fictício foi cadastrado.
-7. Manter `form.mode: 'preview'` até implementar e aprovar a integração. O build rejeita outro modo nesta versão.
+7. Manter `form.mode: 'preview'` até implementar e aprovar a integração. O build também suporta live para a ativação futura autorizada; o projeto permanece em preview nesta entrega.
 8. Executar o build e revisar as telas novamente. O layout não precisa ser reconstruído.
 
 O conteúdo é renderizado no build em HTML real, inclusive a galeria. Não depende de uma busca de JSON no navegador, e permanece legível com JavaScript desativado. O carrossel usa overflow horizontal nativo com Scroll Snap; o JavaScript acrescenta setas, estados inicial/final, indicador e navegação por teclado. Não existe rotação automática.
@@ -58,7 +58,7 @@ Nome, país, WhatsApp internacional e objetivo são obrigatórios, com aceite de
 
 O botão valida o preenchimento e informa explicitamente que nenhum dado foi enviado ou armazenado. Sem JavaScript, o envio fica desabilitado. Não há POST, fetch, localStorage, cookies ou Pixel. As UTMs permitidas são lidas apenas para campos ocultos da página atual; não são persistidas.
 
-`/functions/api/leads.js` é somente uma reserva de rota, não uma integração. POST retorna 503, GET retorna 405; não lê o corpo da requisição nem grava informações. O servidor local estático também não recebe POST. A proposta para Cloudflare Pages Functions → registro durável → Google Sheets está em [docs/INTEGRACAO-GOOGLE-SHEETS.md](docs/INTEGRACAO-GOOGLE-SHEETS.md).
+`/functions/api/leads.js` contém a integração preparada com Google Apps Script, mas retorna 503 enquanto a ativação estiver desligada; GET retorna 405. O fluxo atual e as instruções de configuração estão em [docs/INTEGRACAO-APPS-SCRIPT.md](docs/INTEGRACAO-APPS-SCRIPT.md). O servidor estático simples não executa Functions; para isso, utilizar a prévia Wrangler.
 
 ## Git e publicação
 
@@ -88,3 +88,8 @@ A compatibilidade foi validada com Wrangler 4.161.0 (devDependency travada no lo
 Na pasta do projeto, executar `npm.cmd ci` uma vez e `npm.cmd run preview:cloudflare`. Abrir http://127.0.0.1:8788/ e encerrar com Ctrl+C. O comando já executa o build. `npm.cmd run preview` é apenas a prévia estática; o teste completo de Pages usa `preview:cloudflare`.
 
 Ver `docs/VERIFICACAO-CLOUDFLARE.md` para os resultados, comandos e limitações. Nenhum deploy foi feito.
+## Integração implementada por Apps Script — ativação pendente
+
+A implementação atual utiliza Pages Function → Apps Script → a planilha existente, sem D1 ou conta de serviço Google. Código completo, mapeamento inspecionado e instruções estão em `docs/INTEGRACAO-APPS-SCRIPT.md`; esse documento substitui a proposta antiga de integração.
+
+`npm.cmd run test:integration` executa somente testes sintéticos e serviços simulados. O projeto é entregue com `form.mode: preview`, sem secrets reais e com a Function fechada quando `LEADS_ENABLED` não for `true`. O build já suporta o modo live para uma ativação futura autorizada. Nenhum deploy, linha de lead ou alteração de compartilhamento foi realizado.
