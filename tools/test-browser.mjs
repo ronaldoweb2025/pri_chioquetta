@@ -6,6 +6,7 @@ import {fileURLToPath} from 'node:url';
 import {spawn} from 'node:child_process';
 import assert from 'node:assert/strict';
 import {onRequest} from '../functions/api/leads.js';
+import config from '../config.js';
 const require = createRequire(import.meta.url);
 const playwright = require(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -52,7 +53,14 @@ try {
     assert.ok(initial.heroSrc.includes('itapema-santa-catarina')&&initial.heroSrc.endsWith('.webp'));
     assert.equal(initial.imageFit,'cover');
     assert.ok(initial.creci.includes('Priscila Charlise Chioquetta')&&initial.creci.includes('78854F'));
-    if(width<768){assert.ok(initial.heroTop>=initial.heroCopyBottom-1);assert.ok(initial.brokerTop>=initial.heroTop);}
+    if(width<768){
+      assert.equal(await page.locator('.hero-image').isVisible(),false);
+      assert.ok(initial.brokerTop>=initial.heroCopyBottom-1);
+      const cta=await page.locator('.hero .button').evaluate(el=>({width:el.getBoundingClientRect().width,height:el.getBoundingClientRect().height,available:el.parentElement.clientWidth-parseFloat(getComputedStyle(el.parentElement).paddingLeft)-parseFloat(getComputedStyle(el.parentElement).paddingRight)}));
+      assert.ok(cta.width<cta.available);assert.ok(cta.height>=46);
+    }
+    assert.equal(await page.locator('.brand-subtitle').innerText(),'CORRETORA DE IMÓVEIS EM ITAPEMA');
+    assert.equal(await page.locator('.brand-creci').innerText(),'CRECI-SC 78854F');
     const contactPhoto=await page.locator('.contact-panorama').evaluate(el=>{
       const box=el.getBoundingClientRect();
       return {height:box.height,top:box.top,bottom:box.bottom,formTop:document.querySelector('#interest-form').getBoundingClientRect().top,copyBottom:document.querySelector('.contact-copy').getBoundingClientRect().bottom};
@@ -68,22 +76,32 @@ try {
     // Despertar imagens lazy antes das capturas completas e conferir sua decodificação.
     await page.evaluate(async()=>{
       for(let y=0;y<document.body.scrollHeight;y+=700){window.scrollTo({top:y,behavior:'instant'});await new Promise(r=>setTimeout(r,45));}
-      await Promise.all([...document.images].filter(im=>im.getClientRects().length>0).map(im=>im.decode()));
+      const renderedImages=[...document.images].filter(im=>im.getClientRects().length>0);
+      // No QA, conferir também os slides fora da área visível, sem esperar um gesto manual.
+      renderedImages.forEach(im=>{im.loading='eager';});
+      await Promise.all(renderedImages.map(im=>im.decode()));
       window.scrollTo({top:0,behavior:'instant'});
     });
     await page.screenshot({path:path.join(out,`pagina-${width}.png`),fullPage:true});
     const broken=await page.evaluate(()=>[...document.images].filter(im=>im.getClientRects().length>0&&(!im.complete||!im.naturalWidth)).map(im=>im.src));
     assert.deepEqual(broken,[]);
     const ratio=await page.locator('.gallery-track').evaluate(el=>el.clientWidth/el.firstElementChild.getBoundingClientRect().width);
+    assert.equal(await page.locator('.gallery-card').count(),config.gallery.items.length);
+    assert.deepEqual(await page.locator('.gallery-card figcaption h3').allTextContents(),config.gallery.items.map(item=>item.title));
+    assert.ok(await page.locator('.gallery-track').evaluate(el=>!el.innerHTML.includes('itapema-santa-catarina')));
     assert.ok(width<768 ? Math.abs(ratio-1)<.02 : ratio>2 && ratio<2.15,`Número de imagens por tela em ${width}: ${ratio}`);
     await page.locator('.gallery-section').scrollIntoViewIfNeeded();
     await page.locator('.gallery-section').screenshot({path:path.join(out,`carrossel-${width}.png`)});
     assert.equal(await page.locator('.carousel-prev').isDisabled(),true);
-    await page.locator('.carousel-next').click();
-    await page.waitForTimeout(700);
-    assert.ok(await page.locator('.gallery-track').evaluate(el=>el.scrollLeft)>10);
-    if(width<768){await page.locator('.carousel-next').click();await page.waitForTimeout(700);}
+    let moves=0;
+    while(!await page.locator('.carousel-next').isDisabled()&&moves<config.gallery.items.length){
+      const before=await page.locator('.gallery-track').evaluate(el=>el.scrollLeft);
+      await page.locator('.carousel-next').click();await page.waitForTimeout(550);
+      assert.ok(await page.locator('.gallery-track').evaluate(el=>el.scrollLeft)>before);
+      moves++;
+    }
     assert.equal(await page.locator('.carousel-next').isDisabled(),true);
+    assert.ok((await page.locator('.gallery-status').innerText()).endsWith(`de ${config.gallery.items.length}`));
     await page.locator('.gallery-track').focus();await page.keyboard.press('Home');await page.waitForTimeout(100);
     assert.equal(await page.locator('.carousel-prev').isDisabled(),true);
     await page.keyboard.press('ArrowRight');await page.waitForTimeout(700);

@@ -1,0 +1,32 @@
+[
+  {
+    "count": 1,
+    "width": 375,
+    "result": "aprovado"
+  },
+  {
+    "count": 1,
+    "width": 1440,
+    "result": "aprovado"
+  },
+  {
+    "count": 2,
+    "width": 375,
+    "result": "aprovado"
+  },
+  {
+    "count": 2,
+    "width": 1440,
+    "result": "aprovado"
+  },
+  {
+    "count": 7,
+    "width": 375,
+    "result": "aprovado"
+  },
+  {
+    "count": 7,
+    "width": 1440,
+    "result": "aprovado"
+  }
+]

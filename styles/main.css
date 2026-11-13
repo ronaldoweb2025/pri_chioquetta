@@ -9,8 +9,20 @@
 @media(min-width:1101px){.hero-title-line{display:block}.hero-copy{padding-bottom:13px}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 .contact-panorama{display:none}
+.brand{position:relative}
+.brand-creci{display:block;position:absolute;top:100%;left:0;margin-top:2px;font-family:var(--body);font-size:11px;font-weight:400;line-height:1.3;color:var(--muted);white-space:nowrap}
+.gallery-card figcaption h3{font-size:24px;line-height:1.3}
+.gallery-card figcaption p{font-family:var(--body);font-size:16px;line-height:1.5;color:var(--muted);margin-top:8px}
+.carousel-arrow{top:0;margin-top:calc((100% - 24px)*60/410 - 22px)}
+@media(max-width:767px){
+  .gallery-card figcaption h3{font-size:22px}
+  .gallery-card figcaption p{font-size:15px}
+  .carousel-arrow{top:0;margin-top:calc(100%*107.5/382 - 22px)}
+}
 /* Foto dentro da seção de contato, imediatamente antes dos campos, só no mobile. */
 @media(max-width:767px){
   .contact-panorama{display:block;margin-inline:-24px}
   .contact-panorama img{width:100%;height:auto;aspect-ratio:1.6;object-fit:cover;object-position:var(--image-position,50% 55%)}
+  .hero-image{display:none}
+  .hero .button{align-self:center;width:fit-content;max-width:calc(100% - 16px);min-height:46px;padding:11px 16px;font-size:16px;line-height:1.4}
 }

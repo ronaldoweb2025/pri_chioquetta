@@ -8,19 +8,19 @@ Primeira landing page funcional criada na pasta `C:\Users\Usuario\Documents\A- C
 
 Abrir `dist/index.html` no navegador ou executar `node tools/serve.mjs` nessa pasta e acessar o endereço local impresso. Para editar os dados e reconstruir: `config.js` e `node tools/build.mjs`.
 
-A referência desktop foi preservada em cores, tipografia, hero dividido, título com quebras editoriais, apresentação pessoal, fachada vertical e encerramento com formulário. O cabeçalho mobile foi restaurado ao estilo inicial a pedido do usuário. Uma foto adicional de Itapema aparece dentro da seção de contato, entre a chamada e os campos, apenas no mobile. A captura provisória de Instagram foi substituída pelo retrato profissional disponível para revisão, com nome completo, profissão e CRECI informados pelo usuário.
+A referência desktop foi preservada em cores, tipografia, hero dividido, título com quebras editoriais, apresentação pessoal, fachada vertical e encerramento com formulário. O cabeçalho mobile foi restaurado ao estilo inicial a pedido do usuário. A foto de Itapema aparece dentro da seção de contato, entre a chamada e os campos, apenas no mobile; não se repete sob o Hero nesse tamanho. O CTA do Hero mobile está compacto e centralizado. A captura provisória de Instagram foi substituída pelo retrato profissional disponível para revisão, com nome completo, profissão e CRECI informados pelo usuário.
 
 ## Arquivos criados e alterados
 
 Não havia código anterior. Todos os arquivos de implementação são novos; nenhum original de mídia foi modificado. Foram preservados os 21 arquivos que estavam na raiz da pasta na hora da instalação, com mesmo tamanho e data de modificação.
 
-Arquivos centrais: `config.js`, `templates/index.html`, `styles/main.css`, `scripts/main.js`, `functions/api/leads.js`, `tools/build.mjs`, `tools/serve.mjs`, `package.json`, `_headers`, `.gitignore`, `.dev.vars.example`, `.github/pull_request_template.md`, `README.md`, documentos e evidências em `docs`/`validacao`. Foram acrescentados 35 arquivos de imagem otimizados e um favicon dentro de `assets`.
+Arquivos centrais: `config.js`, `templates/index.html`, `styles/main.css`, `scripts/main.js`, `functions/api/leads.js`, `tools/build.mjs`, `tools/serve.mjs`, `package.json`, `_headers`, `.gitignore`, `.dev.vars.example`, `.github/pull_request_template.md`, `README.md`, documentos e evidências em `docs`/`validacao`. Foram acrescentados 59 arquivos de imagem otimizados e um favicon dentro de `assets`.
 
 O build gera `dist/index.html`, CSS, JS, assets, robots, sitemap e rotas da Function. A saída pública não contém MP4, mídia original, documentação de trabalho ou configuração privada.
 
 ## Comportamento entregue
 
-- Carrossel com três imagens, duas visíveis a partir de 768 px e uma no mobile, sem autoplay; setas laterais, limites, movimento suave, teclado e toque nativo. Legendas e aviso de perspectivas ilustrativas preservados.
+- Carrossel com sete imagens, duas visíveis a partir de 768 px e uma no mobile, sem autoplay; setas laterais, limites, movimento suave, teclado e toque nativo. Legendas e aviso de perspectivas ilustrativas preservados.
 - CTA consistente: “Quero conhecer as oportunidades”.
 - Formulário com quatro dados principais, consentimento desmarcado e qualificação opcional expansível. Nenhuma faixa de preço inventada.
 - Nenhuma integração ativa, falso recibo de lead, Pixel, cookie, POST ou armazenamento no navegador. A validação é local e explicitamente identificada como prévia.

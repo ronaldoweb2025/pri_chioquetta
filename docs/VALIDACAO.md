@@ -6,21 +6,21 @@
 
 | Largura | Carrossel visível | Toque | Overflow da página | Subrecursos iniciais |
 |---|---|---|---|---|
-| 320 px | 1 imagem(ns) | aprovado (CDP) | Não | 161.8 kB |
-| 375 px | 1 imagem(ns) | aprovado (CDP) | Não | 161.8 kB |
-| 430 px | 1 imagem(ns) | aprovado (CDP) | Não | 161.8 kB |
-| 768 px | 2 imagem(ns) | não aplicável | Não | 281.9 kB |
-| 1280 px | 2 imagem(ns) | não aplicável | Não | 281.9 kB |
-| 1440 px | 2 imagem(ns) | não aplicável | Não | 454.1 kB |
+| 320 px | 1 imagem(ns) | aprovado (CDP) | Não | 162.6 kB |
+| 375 px | 1 imagem(ns) | aprovado (CDP) | Não | 162.6 kB |
+| 430 px | 1 imagem(ns) | aprovado (CDP) | Não | 162.6 kB |
+| 768 px | 2 imagem(ns) | não aplicável | Não | 282.7 kB |
+| 1280 px | 2 imagem(ns) | não aplicável | Não | 282.7 kB |
+| 1440 px | 2 imagem(ns) | não aplicável | Não | 454.9 kB |
 
 Os valores de recursos são `encodedBodySize` dos subrecursos observados na primeira tela, antes do percurso pela página; não incluem o HTML (16,5 kB), cabeçalhos ou efeitos de compressão em produção. Incluem possíveis antecipações de imagens lazy do navegador. Não são nota Lighthouse nem medição em rede móvel.
 
 ## Verificações aprovadas
 
 - Seis larguras sem overflow horizontal da página, inclusive depois das interações.
-- Cabeçalho mobile restaurado ao estilo inicial; foto WebP dentro da seção de contato, entre a chamada e os campos. Tablet e desktop preservados.
+- Cabeçalho profissional com subtítulo e CRECI; Hero mobile preservado com CTA compacto e foto WebP apenas dentro da seção de contato, entre a chamada e os campos. Hero desktop preservado.
 - Identificação completa, profissão e CRECI presentes; retrato profissional no lugar da captura de Instagram.
-- Três imagens da seleção anterior; duas por tela a partir de 768 px e uma abaixo desse limite.
+- Sete ambientes na ordem solicitada, com títulos e legendas; duas imagens por tela a partir de 768 px e uma abaixo desse limite.
 - Setas, estados inicial/final e navegação por teclado (esquerda/direita, Home/End).
 - Gesto nativo de deslize emulado por eventos de toque CDP nas três larguras mobile.
 - Todas as imagens da página decodificadas, sem recursos com erro HTTP ou erros JavaScript.

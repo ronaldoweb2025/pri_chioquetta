@@ -1,6 +1,6 @@
 // Edite o conteúdo aqui e execute `npm run build`. Sem dependências externas.
 export default {
-  brand: { name: 'Pri Chioquetta', subtitle: 'Imóveis em Itapema', tagline: 'Atendimento pessoal, onde você estiver.' },
+  brand: { name: 'Pri Chioquetta', subtitle: 'Corretora de Imóveis em Itapema', tagline: 'Atendimento pessoal, onde você estiver.' },
   seo: {
     title: 'Imóveis em Itapema | Pri Chioquetta',
     description: 'Conheça o Galileu Residence e converse com Priscila Charlise Chioquetta sobre férias, moradia e seus planos de ter um imóvel em Itapema, Santa Catarina.',
@@ -55,11 +55,16 @@ export default {
   gallery: {
     title: 'Espaços para imaginar seus próximos dias.',
     disclaimer: 'Perspectivas ilustrativas. Imagens e especificações sujeitas à confirmação nos materiais oficiais vigentes.',
-    // Manter apenas a seleção editorial já aprovada. Nenhum novo ambiente foi acrescentado.
+    // Adicione, remova ou reordene os objetos abaixo e execute npm run build.
+    // Os arquivos são os derivados reais já existentes no acervo otimizado.
     items: [
-      { caption: 'Perspectivas de lazer', image: { name: 'piscina-a-02', widths: [640, 1280, 1920], width: 5000, height: 2813, alt: 'Perspectiva ilustrativa de piscina e espreguiçadeiras.' } },
-      { caption: 'Ambientes para morar', image: { name: 'living-a-01', widths: [640, 1280, 1920], width: 5000, height: 2813, alt: 'Perspectiva ilustrativa de living com sofá e painel de televisão.' } },
-      { caption: 'Momentos de descanso', image: { name: 'sacada-02-a-01', widths: [640, 1280, 1920], width: 5000, height: 2813, alt: 'Perspectiva ilustrativa de sacada com mesa, cadeiras e paisagem urbana.' } }
+      { title: 'Piscina', caption: 'Perspectiva de lazer com piscina e espreguiçadeiras.', image: { name: 'piscina-a-02', widths: [640, 1280, 1920], width: 5000, height: 2813, alt: 'Perspectiva ilustrativa de piscina e espreguiçadeiras.' } },
+      { title: 'Living', caption: 'Perspectiva do ambiente de estar e sua decoração.', image: { name: 'living-a-01', widths: [640, 1280, 1920], width: 5000, height: 2813, alt: 'Perspectiva ilustrativa de living com sofá e painel de televisão.' } },
+      { title: 'Sacada', caption: 'Perspectiva da sacada com mesa e cadeiras.', image: { name: 'sacada-02-a-01', widths: [640, 1280, 1920], width: 5000, height: 2813, alt: 'Perspectiva ilustrativa de sacada com mesa, cadeiras e paisagem urbana.' } },
+      { title: 'Suíte', caption: 'Perspectiva do dormitório e sua ambientação.', image: { name: 'suite-a-01', widths: [640, 1280, 1920], width: 5000, height: 2813, alt: 'Perspectiva ilustrativa de suíte com cama e cabeceira.' } },
+      { title: 'Salão de festas', caption: 'Perspectiva do espaço de convivência e celebrações.', image: { name: 'salao-de-festas-a-02', widths: [640, 1280, 1920], width: 5000, height: 2813, alt: 'Perspectiva ilustrativa de salão de festas com mesas e área de apoio.' } },
+      { title: 'Sala de jogos', caption: 'Perspectiva do ambiente de jogos e convivência.', image: { name: 'sala-de-jogos-a-02', widths: [640, 1280, 1920], width: 5000, height: 2813, alt: 'Perspectiva ilustrativa de sala de jogos com mesa e poltronas.' } },
+      { title: 'Brinquedoteca', caption: 'Perspectiva do espaço infantil e seus elementos lúdicos.', image: { name: 'brinquedoteca-a-02', widths: [640, 1280, 1920], width: 5000, height: 2813, alt: 'Perspectiva ilustrativa de brinquedoteca com cabana e brinquedos.' } }
     ]
   },
   regionTitle: 'O que aproxima você de Itapema?',

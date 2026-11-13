@@ -48,7 +48,7 @@ const replacements = {
   propertyCaption: escape(c.property.imageCaption), propertyCta: cta(false),
   videoLink: c.property.videoUrl ? `<a class="video-link" href="${escape(safeLink(c.property.videoUrl))}" target="_blank" rel="noopener noreferrer">Ver vídeo do empreendimento <span class="sr-only">(abre em nova aba)</span></a>` : '',
   galleryTitle: escape(c.gallery.title), galleryDisclaimer: escape(c.gallery.disclaimer),
-  galleryItems: c.gallery.items.map((item, i) => `<li class="gallery-card" aria-label="${i + 1} de ${c.gallery.items.length}"><figure>${picture(item.image, '(max-width: 767px) calc(100vw - 48px), (max-width: 1100px) calc((100vw - 104px) / 2), (max-width: 1420px) calc((100vw - 184px) / 2), 618px')}<figcaption>${escape(item.caption)}</figcaption></figure></li>`).join('\n'),
+  galleryItems: c.gallery.items.map((item, i) => `<li class="gallery-card" aria-label="${i + 1} de ${c.gallery.items.length}"><figure>${picture(item.image, '(max-width: 767px) calc(100vw - 48px), (max-width: 1100px) calc((100vw - 104px) / 2), (max-width: 1420px) calc((100vw - 184px) / 2), 618px')}<figcaption>${item.title ? `<h3>${escape(item.title)}</h3>` : ''}<p>${escape(item.caption)}</p></figcaption></figure></li>`).join('\n'),
   regionTitle: escape(c.regionTitle),
   motivations: c.motivations.map(item => `<div><h3>${escape(item.title)}</h3><p>${escape(item.text)}</p></div>`).join(''),
   formTitle: escape(c.form.title), formText: escape(c.form.text), formEndpoint: escape(c.form.endpoint), previewNote: escape(c.form.previewNote), previewResult: escape(c.form.previewResult),

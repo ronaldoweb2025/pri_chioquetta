@@ -15,6 +15,8 @@ Abrir `http://127.0.0.1:4173`. Encerrar com Ctrl+C. Os equivalentes `npm run bui
 
 O arquivo pronto é `dist/index.html`; também pode ser aberto diretamente no navegador para revisão básica. O servidor local é recomendado para reproduzir a navegação. A pasta `dist` contém apenas os arquivos públicos gerados, sem os materiais originais da raiz e sem os documentos internos.
 
+A revisão atual inclui cabeçalho profissional, sete ambientes configuráveis e o ajuste do CTA/panorâmica no mobile. Veja `docs/AJUSTES-APROVACAO.md`.
+
 ## Estrutura
 
 ```text
