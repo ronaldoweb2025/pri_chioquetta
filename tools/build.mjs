@@ -52,7 +52,7 @@ const replacements = {
   galleryItems: c.gallery.items.map((item, i) => `<li class="gallery-card" aria-label="${i + 1} de ${c.gallery.items.length}"><figure>${picture(item.image, '(max-width: 767px) calc(100vw - 48px), (max-width: 1100px) calc((100vw - 104px) / 2), (max-width: 1420px) calc((100vw - 184px) / 2), 618px')}<figcaption>${item.title ? `<h3>${escape(item.title)}</h3>` : ''}<p>${escape(item.caption)}</p></figcaption></figure></li>`).join('\n'),
   regionTitle: escape(c.regionTitle),
   motivations: c.motivations.map(item => `<div><h3>${escape(item.title)}</h3><p>${escape(item.text)}</p></div>`).join(''),
-  formTitle: escape(c.form.title), formText: Array.isArray(c.form.desktopText) ? c.form.desktopText.map(paragraph => `<span class="contact-paragraph">${paragraph.split('|').map(escape).join('<br class="desktop-only">')}</span>`).join('') : escape(c.form.text), formEndpoint: escape(c.form.endpoint), formMode: escape(c.form.mode),
+  formTitle: escape(c.form.title), formText: Array.isArray(c.form.desktopText) ? c.form.desktopText.map(paragraph => `<span class="contact-paragraph">${paragraph.split('|').map(escape).join(' <br class="desktop-only"> ')}</span>`).join('') : escape(c.form.text), formEndpoint: escape(c.form.endpoint), formMode: escape(c.form.mode),
   previewNote: escape(c.form.mode === 'preview' ? c.form.previewNote : c.form.liveNote), previewResult: escape(c.form.previewResult),
   successMessage: escape(c.form.successMessage), errorMessage: escape(c.form.errorMessage), sendingLabel: escape(c.form.sendingLabel),
   noscriptMessage: escape(c.form.mode === 'preview' ? 'Esta prévia não envia dados. Ative o JavaScript para testar a validação dos campos.' : 'Ative o JavaScript para enviar seu interesse com segurança.'),
