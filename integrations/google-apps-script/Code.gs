@@ -54,7 +54,7 @@ function doPost(e) {
 
 function t(v) {
   v = String(v || '').trim().slice(0, 300);
-  return /^[=+\\-@]/.test(v) ? "'" + v : v;
+  return /^[=+\-@]/.test(v) ? "'" + v : v;
 }
 
 function teste() {
