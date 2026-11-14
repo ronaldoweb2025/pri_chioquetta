@@ -44,5 +44,4 @@
 /* Respiro entre os parágrafos do convite de contato */
 .contact-copy>p{line-height:1.5}
 .contact-copy>p{white-space:pre-line}
-
-.privacy-whatsapp{display:inline-flex;align-items:center;margin-top:16px;padding:10px 16px;border:1px solid #8fa29c;border-radius:4px;color:var(--petrol);font-size:14px;font-weight:700;text-decoration:none;transition:background-color .18s,color .18s}.privacy-whatsapp:hover{background:var(--petrol);color:white}@media(max-width:767px){.privacy-whatsapp{font-size:13px;padding:10px 12px}}
+ 
