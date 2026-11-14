@@ -1,4 +1,4 @@
-// Carrossel e formulário. Tokens e URL do Apps Script existem apenas no servidor.
+// Carrossel e formulário. A URL pública do Apps Script é configurada no HTML gerado.
 (() => {
   const track = document.querySelector('.gallery-track');
   const previous = document.querySelector('.carousel-prev');
