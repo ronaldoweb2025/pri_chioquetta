@@ -39,10 +39,10 @@ function doPost(e) {
     row[map['Recebido em']]=now; row[map['Nome']]=safe_(name);
     row[map['País de residência']]=safe_(country); row[map['WhatsApp internacional']]=safe_(whatsapp);
     row[map['Objetivo da compra']]=safe_(objective);
-    row[map['Consentimento registrado']]='Sim — '+now.toISOString()+' — '+clean_(p.consent_version||'landing-pri-2026-11-14',64,true);
+    row[map['Consentimento registrado']]=true;
     row[map['Origem']]='Landing Pri Chioquetta'; row[map['Status do atendimento']]='Novo';
     var target=last+1; if(target>sheet.getMaxRows())sheet.insertRowsAfter(sheet.getMaxRows(),1);
-    var metadata={consent_text:clean_(p.consent_text||'Aceite registrado no formulário',1200,true),investment:clean_(p.investment,100,false),interest:clean_(p.interest,100,false),utm_source:clean_(p.utm_source,200,false),utm_medium:clean_(p.utm_medium,200,false),utm_campaign:clean_(p.utm_campaign,200,false),utm_content:clean_(p.utm_content,200,false),utm_term:clean_(p.utm_term,200,false)};
+    var metadata={consent_text:clean_(p.consent_text||'Aceite registrado no formulário',1200,true),consent_at:clean_(p.consent_at,40,true),consent_version:clean_(p.consent_version||'landing-pri-2026-11-13',64,true),investment:clean_(p.investment,100,false),interest:clean_(p.interest,100,false),utm_source:clean_(p.utm_source,200,false),utm_medium:clean_(p.utm_medium,200,false),utm_campaign:clean_(p.utm_campaign,200,false),utm_content:clean_(p.utm_content,200,false),utm_term:clean_(p.utm_term,200,false)};
     sheet.getRange(target,map['Recebido em']+1).setNote(JSON.stringify(metadata));
     sheet.getRange(target,1,1,EXPECTED_HEADERS.length).setValues([row]); SpreadsheetApp.flush();
     return json_({ok:true,saved:true});
