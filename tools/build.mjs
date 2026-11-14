@@ -36,7 +36,7 @@ const replacements = {
   pageTitle: escape(c.seo.title), description: escape(c.seo.description), robots: c.seo.allowIndexing ? 'index, follow' : 'noindex, nofollow',
   canonical: escape(canonical), ogImage: escape(new URL(localAsset(c.seo.ogImage), canonical).href), heroAlt: escape(c.hero.image.alt),
   brandName: escape(c.brand.name), brandSubtitle: escape(c.brand.subtitle), brandTagline: escape(c.brand.tagline),
-  location: escape(c.hero.location), heroTitle: c.hero.desktopTitleLines?.join(' ') === c.hero.title ? c.hero.desktopTitleLines.map(line => `<span class="hero-title-line">${escape(line)}</span>`).join(' ') : escape(c.hero.title), heroDescription: escape(c.hero.description), heroNote: escape(c.hero.note),
+  location: escape(c.hero.location), heroTitle: c.hero.desktopTitleLines?.join(' ') === c.hero.title ? c.hero.desktopTitleLines.map(line => `<span class="hero-title-line">${escape(line)}</span>`).join(' ') : escape(c.hero.title), heroDescription: Array.isArray(c.hero.desktopDescriptionLines) ? `<span class="hero-description-desktop">${c.hero.desktopDescriptionLines.map(escape).join('<br>')}</span><span class="hero-description-mobile">${escape(c.hero.description)}</span>` : escape(c.hero.description), heroNote: escape(c.hero.note),
   heroImage: picture(c.hero.image, '(max-width: 767px) 100vw, (max-width: 1100px) 1200px, 100vw', true), heroCta: cta(true),
   values: c.motivations.map(item => `<p>${escape(item.eyebrow)}</p>`).join(''),
   brokerEyebrow: escape(c.broker.eyebrow), brokerTitle: escape(c.broker.title), brokerText: escape(c.broker.text),
