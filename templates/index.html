@@ -27,9 +27,15 @@
   <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
   <header class="site-header">
     <a class="brand" href="#inicio" aria-label="{{brandName}} — início">
-      <span class="brand-name">{{brandName}}</span><span class="brand-subtitle">{{brandSubtitle}}</span><span class="brand-creci">{{brokerCreci}}</span>
+      <img class="brand-logo" src="assets/images/logo-pri-chioquetta.png" alt="{{brandName}}">
     </a>
-    <p class="header-note">{{brandTagline}}</p>
+    <nav class="site-nav" aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#sobre-pri">Sobre a Pri</a>
+      <a href="#imovel">O imóvel</a>
+      <a href="#galeria">Galeria</a>
+      <a class="nav-cta" href="#interesse">Tenho interesse</a>
+    </nav>
   </header>
   <main id="conteudo">
     <section id="inicio" class="hero" aria-labelledby="hero-title">
@@ -43,7 +49,7 @@
       <div class="hero-image">{{heroImage}}</div>
     </section>
     <div class="values-strip container" aria-label="Seus planos em Itapema">{{values}}</div>
-    <section class="broker container" aria-labelledby="broker-title">
+    <section id="sobre-pri" class="broker container" aria-labelledby="broker-title">
       <figure class="broker-portrait">{{brokerImage}}</figure>
       <div class="broker-copy">
         <p class="eyebrow">{{brokerEyebrow}}</p>
@@ -52,7 +58,7 @@
         <p class="broker-credentials"><strong>{{brokerName}}</strong><span>{{brokerRole}} <span aria-hidden="true">·</span> {{brokerCreci}}</span></p>
       </div>
     </section>
-    <section class="property" aria-labelledby="property-title">
+    <section id="imovel" class="property" aria-labelledby="property-title">
       <div class="property-inner container">
         <div class="property-copy">
           <p class="eyebrow">{{propertyEyebrow}}</p>
@@ -65,7 +71,7 @@
         <figure class="property-visual">{{propertyImage}}<figcaption>{{propertyCaption}}</figcaption></figure>
       </div>
     </section>
-    <section class="gallery-section container" aria-labelledby="gallery-title">
+    <section id="galeria" class="gallery-section container" aria-labelledby="gallery-title">
       <h2 id="gallery-title">{{galleryTitle}}</h2>
       <div class="carousel" role="region" aria-roledescription="carrossel" aria-label="Imagens e perspectivas dos materiais apresentados">
         <button class="carousel-arrow carousel-prev" type="button" aria-label="Imagem anterior" aria-controls="gallery-track" disabled hidden>
@@ -109,7 +115,7 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer container"><div><span class="footer-name">{{brandName}}</span><p>{{brokerName}} · {{brokerCreci}}</p></div>{{whatsappLink}}<a href="#privacidade" data-privacy-open>{{privacyTitle}}</a></footer>
+  <footer class="site-footer container"><div class="footer-brand"><img class="footer-logo" src="assets/images/logo-pri-chioquetta.png" alt="{{brandName}} — {{brandSubtitle}}" loading="lazy"><p>{{brokerName}} · {{brokerCreci}}</p></div>{{whatsappLink}}<a href="#privacidade" data-privacy-open>{{privacyTitle}}</a></footer>
   <section id="privacidade" class="privacy-section container" aria-labelledby="privacy-title">
     <h2 id="privacy-title">{{privacyTitle}}</h2>
     <p>{{privacyIntro}}</p>

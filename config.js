@@ -15,6 +15,7 @@ export default {
     title: 'Seu próximo capítulo no Brasil pode começar em Itapema.',
     desktopTitleLines: ['Seu próximo', 'capítulo no Brasil', 'pode começar', 'em Itapema.'],
     description: 'Para suas férias, seus planos de morar ou investir em um imóvel no Brasil.',
+    desktopDescriptionLines: ['Para suas férias, seus planos de morar ou', 'investir em um imóvel no Brasil.'],
     note: 'Mora fora do Brasil? Vamos conversar.',
     image: {
       name: 'itapema-santa-catarina', widths: [640, 1280, 1920], width: 6875, height: 4583,
@@ -69,8 +70,9 @@ export default {
   },
   regionTitle: 'O que aproxima você de Itapema?',
   form: {
-    title: 'Conte à Pri o que você procura.',
-    text: 'Compartilhe seus planos de moradia, férias ou investimento para preparar uma conversa com a Pri.',
+    title: 'Vamos encontrar um lugar especial para você em Itapema?',
+    text: 'Me conte o que você procura e receba uma seleção cuidadosa de oportunidades em Itapema, Santa Catarina.\\n\\nVou acompanhar seus interesses e compartilhar as melhores opções que combinem com seus planos.',
+    desktopText: ['Me conte o que você procura e receba|uma seleção cuidadosa de oportunidades|em Itapema, Santa Catarina.', 'Vou acompanhar seus interesses e|compartilhar as melhores opções que|combinem com seus planos.'],
     mode: 'live',
     endpoint: 'https://script.google.com/macros/s/AKfycbxB2wrY8YYlaxiyjaI9UYWTg7-lpuL7Xj8cUI1XeDUX79F0FQGAPhV37rndaAyLeaal/exec',
     // Alterar para live somente com secrets, Apps Script e publicação autorizados.
@@ -80,7 +82,6 @@ export default {
     sendingLabel: 'Enviando…',
     countries: ['Portugal', 'Brasil', 'Itália', 'Espanha', 'França', 'Alemanha', 'Reino Unido', 'Irlanda', 'Suíça', 'Estados Unidos', 'Canadá', 'Outro país'],
     objectives: ['Moradia', 'Férias', 'Investimento', 'Ainda estou avaliando'],
-    // Definir faixas reais com a Pri antes da captação. Sem valores comerciais inventados.
     investmentRanges: ['Até R$ 500 mil', 'R$ 500 mil a R$ 800 mil', 'R$ 800 mil a R$ 1 milhão', 'Acima de R$ 1 milhão', 'Prefiro conversar com a Pri', 'Ainda estou avaliando'],
     interests: ['Galileu Residence', 'Outras opções em Itapema', 'Ainda estou avaliando'],
     consent: 'Autorizo o contato sobre meu interesse em imóveis e o tratamento dos dados para essa finalidade.',
