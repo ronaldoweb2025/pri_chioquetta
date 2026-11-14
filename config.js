@@ -70,8 +70,8 @@ export default {
   regionTitle: 'O que aproxima você de Itapema?',
   form: {
     title: 'Vamos encontrar um lugar especial para você em Itapema?',
-    text: 'Me conte o que você procura e receba uma seleção cuidadosa de oportunidades em Itapema.\\n\\nVou acompanhar seu interesse pessoalmente e compartilhar opções que combinem com seus planos.',
-    desktopText: ['Me conte o que você procura e receba|uma seleção cuidadosa de oportunidades|em Itapema.', 'Vou acompanhar seu interesse pessoalmente|e compartilhar opções que combinem com|seus planos.'],
+    text: 'Me conte o que você procura e receba uma seleção cuidadosa de oportunidades em Itapema/SC.\\n\\nVou acompanhar seu interesse e compartilhar as melhores opções que combinem com seus planos.',
+    desktopText: ['Me conte o que você procura e receba|uma seleção cuidadosa de oportunidades|em Itapema/SC.', 'Vou acompanhar seu interesse|e compartilhar as melhores opções que combinem com|seus planos.'],
     mode: 'live',
     endpoint: 'https://script.google.com/macros/s/AKfycbxB2wrY8YYlaxiyjaI9UYWTg7-lpuL7Xj8cUI1XeDUX79F0FQGAPhV37rndaAyLeaal/exec',
     // Alterar para live somente com secrets, Apps Script e publicação autorizados.
