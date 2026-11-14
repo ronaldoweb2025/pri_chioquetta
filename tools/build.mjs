@@ -27,7 +27,7 @@ function picture(image, sizes, priority = false) {
 }
 const c = config;
 if (!['preview','live'].includes(c.form.mode)) throw new Error('Modo do formulário deve ser preview ou live.');
-if (c.form.endpoint !== '/api/leads') throw new Error('O formulário deve utilizar o endpoint intermediário da própria origem.');
+if (!/^https:\\/\\/script\\.google\\.com\\/macros\\/s\\/[A-Za-z0-9_-]+\\/exec$/.test(c.form.endpoint)) throw new Error('Informe uma URL /exec válida do Google Apps Script.');
 if (!c.gallery.items.length) throw new Error('Inclua ao menos uma imagem aprovada na galeria.');
 const canonical = new URL('/', c.seo.siteUrl).href;
 const cta = light => `<a class="button button-${light ? 'light' : 'dark'}" href="${escape(safeLink(c.cta.href))}">${escape(c.cta.label)}</a>`;
