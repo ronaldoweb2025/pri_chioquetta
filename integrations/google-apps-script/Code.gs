@@ -1,5 +1,5 @@
 /* Recebe o formulário diretamente do navegador e grava na planilha STC existente. */
-var EXPECTED_HEADERS = ['Recebido em','Nome','País de residência','WhatsApp internacional','Objetivo de compra','Consentimento registrado','Origem','Status do atendimento','Último contato','Próximo retorno','Observações'];
+var EXPECTED_HEADERS = ['Recebido em','Nome','País de residência','WhatsApp internacional','Objetivo da compra','Consentimento registrado','Origem','Status do atendimento','Último contato','Próximo retorno','Observações'];
 var DEFAULT_SPREADSHEET_ID = '16NO-6dfCGy9Zk5fI0Gg4FLYMCCLHoPf8EKkegxXtCnU';
 function json_(value) { return ContentService.createTextOutput(JSON.stringify(value)).setMimeType(ContentService.MimeType.JSON); }
 function doGet() { return json_({ok:true,service:'Pri Chioquetta Leads'}); }
@@ -38,7 +38,7 @@ function doPost(e) {
     var row=EXPECTED_HEADERS.map(function(){return '';});
     row[map['Recebido em']]=now; row[map['Nome']]=safe_(name);
     row[map['País de residência']]=safe_(country); row[map['WhatsApp internacional']]=safe_(whatsapp);
-    row[map['Objetivo de compra']]=safe_(objective);
+    row[map['Objetivo da compra']]=safe_(objective);
     row[map['Consentimento registrado']]='Sim — '+now.toISOString()+' — '+clean_(p.consent_version||'landing-pri-2026-11-14',64,true);
     row[map['Origem']]='Landing Pri Chioquetta'; row[map['Status do atendimento']]='Novo';
     var target=last+1; if(target>sheet.getMaxRows())sheet.insertRowsAfter(sheet.getMaxRows(),1);
