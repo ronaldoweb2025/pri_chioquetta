@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Landing page estática reutilizável, com formulário em modo de prévia.",
+  "description": "Landing page estática com formulário enviado diretamente ao Google Apps Script.",
   "scripts": {
     "build": "node tools/build.mjs",
     "preview": "node tools/serve.mjs",
-    "check": "node --check config.js && node --check scripts/main.js && node --check functions/api/leads.js && node --check lib/server/lead-security.js && node --check tools/build.mjs",
+    "check": "node --check config.js && node --check scripts/main.js && node --check tools/build.mjs",
     "preview:cloudflare": "npm run build && wrangler pages dev dist --ip 127.0.0.1 --port 8788 --compatibility-date=2026-11-13",
-    "check:pages": "node tools/check-pages.mjs",
-    "test:integration": "node --test tests/integration.test.mjs"
+    "check:pages": "node tools/check-pages.mjs"
   },
   "devDependencies": {
     "wrangler": "4.161.0"
