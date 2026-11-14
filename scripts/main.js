@@ -103,7 +103,7 @@
         showMessage(form.dataset.error);
       }
       finally {
-        clearTimeout(timer); sending = false; submit.disabled = false; submit.textContent = originalLabel;
+        sending = false; submit.disabled = false; submit.textContent = originalLabel;
         form.removeAttribute('aria-busy');
       }
     });
