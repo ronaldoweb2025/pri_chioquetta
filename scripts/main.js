@@ -98,8 +98,7 @@
         // Envio direto ao Apps Script, no mesmo padrão simples do site-teste-imersao.
         // Em no-cors o navegador não expõe o recibo do Google ao JavaScript.
         await fetch(form.dataset.endpoint, {method:'POST', body:data, mode:'no-cors'});
-        showMessage('Seu formulário foi enviado. A equipe da Pri poderá entrar em contato pelo WhatsApp informado.');
-        form.reset();
+        showMessage('A solicitação foi encaminhada, mas o Google não permite confirmar automaticamente se a gravação foi concluída. Seus dados foram mantidos no formulário. Se não aparecer na planilha, você poderá tentar novamente.');
       } catch {
         showMessage(form.dataset.error);
       }
