@@ -72,7 +72,7 @@ export default {
     title: 'Conte à Pri o que você procura.',
     text: 'Compartilhe seus planos de moradia, férias ou investimento para preparar uma conversa com a Pri.',
     mode: 'live',
-    endpoint: '/api/leads',
+    endpoint: 'https://script.google.com/macros/s/AKfycbxB2wrY8YYlaxiyjaI9UYWTg7-lpuL7Xj8cUI1XeDUX79F0FQGAPhV37rndaAyLeaal/exec',
     // Alterar para live somente com secrets, Apps Script e publicação autorizados.
     liveNote: 'Seus dados serão usados para atender ao interesse informado.',
     successMessage: 'Recebemos seu interesse. A Pri fará contato pelo WhatsApp informado.',
