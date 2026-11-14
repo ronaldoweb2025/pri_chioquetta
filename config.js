@@ -69,8 +69,8 @@ export default {
   },
   regionTitle: 'O que aproxima você de Itapema?',
   form: {
-    title: 'Conte à Pri o que você procura.',
-    text: 'Compartilhe seus planos de moradia, férias ou investimento para preparar uma conversa com a Pri.',
+    title: 'Encontre em Itapema um imóvel que combine com seus planos.',
+    text: 'Seja para morar, aproveitar as férias ou investir, conte à Pri o que você procura. Ela vai entender seu momento e apresentar oportunidades alinhadas ao seu objetivo.',
     mode: 'live',
     endpoint: 'https://script.google.com/macros/s/AKfycbxB2wrY8YYlaxiyjaI9UYWTg7-lpuL7Xj8cUI1XeDUX79F0FQGAPhV37rndaAyLeaal/exec',
     // Alterar para live somente com secrets, Apps Script e publicação autorizados.
