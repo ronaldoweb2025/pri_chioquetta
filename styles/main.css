@@ -36,10 +36,10 @@
 .brand-logo{width:clamp(205px,21vw,270px);max-height:88px}
 .site-header{min-height:144px}
 .footer-brand{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0}
-.footer-logo{display:block;width:clamp(145px,15vw,180px);max-height:62px;height:auto;object-fit:contain;object-position:left center}
+.footer-logo{display:block;width:clamp(130px,13vw,155px);max-height:54px;height:auto;object-fit:contain;object-position:left center}
 .site-footer .footer-brand p{margin-top:0}
 @media(max-width:1100px){.brand-logo{width:235px;max-height:82px}}
-@media(max-width:767px){.site-header{min-height:116px}.brand-logo{width:205px;max-height:74px}.site-footer{align-items:center}.footer-brand{align-items:center;width:100%}.footer-logo{width:155px;max-height:54px}.site-footer .footer-brand p{text-align:center}}
+@media(max-width:767px){.site-header{min-height:116px}.brand-logo{width:205px;max-height:74px}.site-footer{align-items:center}.footer-brand{align-items:center;width:100%}.footer-logo{width:140px;max-height:48px}.site-footer .footer-brand p{text-align:center}}
 
 /* Respiro entre os parágrafos do convite de contato */
 .contact-copy>p{line-height:1.5}
@@ -65,7 +65,7 @@ body{padding-top:104px}
   box-shadow:0 3px 16px rgba(21,54,61,.08)
 }
 .site-header .brand{flex:0 0 auto}
-.site-header .brand-logo{width:clamp(165px,18vw,225px);max-height:76px}
+.site-header .brand-logo{width:clamp(150px,15vw,190px);max-height:64px}
 .site-nav{display:flex;align-items:center;justify-content:flex-end;gap:clamp(12px,2vw,28px);min-width:0}
 .site-nav a{font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap;color:var(--ink);padding:9px 0}
 .site-nav a:hover{color:#8a633c}
@@ -76,7 +76,7 @@ body{padding-top:104px}
   html{scroll-padding-top:118px}
   body{padding-top:118px}
   .site-header{height:118px;min-height:118px;padding:9px 22px;flex-direction:column;justify-content:center;gap:3px}
-  .site-header .brand-logo{width:164px;max-height:53px}
+  .site-header .brand-logo{width:145px;max-height:48px}
   .site-nav{width:100%;justify-content:flex-start;gap:22px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:1px 0 4px}
   .site-nav::-webkit-scrollbar{display:none}
   .site-nav a{font-size:13px;padding:5px 0}
