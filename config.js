@@ -15,6 +15,7 @@ export default {
     title: 'Seu próximo capítulo no Brasil pode começar em Itapema.',
     desktopTitleLines: ['Seu próximo', 'capítulo no Brasil', 'pode começar', 'em Itapema.'],
     description: 'Para suas férias, seus planos de morar ou investir em um imóvel no Brasil.',
+    desktopDescriptionLines: ['Para suas férias, seus planos de morar ou', 'investir em um imóvel no Brasil.'],
     note: 'Mora fora do Brasil? Vamos conversar.',
     image: {
       name: 'itapema-santa-catarina', widths: [640, 1280, 1920], width: 6875, height: 4583,
