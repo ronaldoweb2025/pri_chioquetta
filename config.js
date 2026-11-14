@@ -69,7 +69,7 @@ export default {
   },
   regionTitle: 'O que aproxima você de Itapema?',
   form: {
-    title: 'Vamos encontrar algo que tenha a sua cara?',
+    title: 'Vamos encontrar o imóvel que lhe agrada?',
     text: 'Me conte o que você procura e receba uma seleção cuidadosa de oportunidades em Itapema.\n\nVou acompanhar seu interesse pessoalmente e compartilhar opções que combinem com seus planos.',
     mode: 'live',
     endpoint: 'https://script.google.com/macros/s/AKfycbxB2wrY8YYlaxiyjaI9UYWTg7-lpuL7Xj8cUI1XeDUX79F0FQGAPhV37rndaAyLeaal/exec',
