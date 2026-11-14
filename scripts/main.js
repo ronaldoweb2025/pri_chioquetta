@@ -99,6 +99,9 @@
         // Em no-cors o navegador não expõe o recibo do Google ao JavaScript.
         await fetch(form.dataset.endpoint, {method:'POST', body:new URLSearchParams(data), mode:'no-cors'});
         showMessage(form.dataset.success);
+        // Mede formulário válido enviado; no-cors não confirma a gravação no Sheets.
+        // O rastreamento é independente do atendimento e não recebe os campos do lead.
+        document.dispatchEvent(new CustomEvent('pri:interest-submitted'));
       } catch {
         showMessage(form.dataset.error);
       }

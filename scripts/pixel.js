@@ -6,6 +6,14 @@
   if (!banner) return;
   let choice = null;
   let initialized = false;
+  let leadTracked = false;
+  document.addEventListener('pri:interest-submitted', () => {
+    if (choice !== 'accepted' || !initialized || leadTracked) return;
+    try {
+      window.fbq('trackSingle', pixelId, 'Lead', {content_name: 'Formulario de interesse - Pri Chioquetta'});
+      leadTracked = true;
+    } catch { /* Uma falha de mensuração não interfere no formulário. */ }
+  });
   try { const saved = JSON.parse(localStorage.getItem(key)); if (saved && Date.now() - saved.at < 180 * 86400000) choice = saved.value; } catch {}
   function enable() {
     if (initialized) { window.fbq('consent', 'grant'); return; }
