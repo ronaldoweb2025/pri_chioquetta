@@ -81,7 +81,7 @@ export default {
     countries: ['Portugal', 'Brasil', 'Itália', 'Espanha', 'França', 'Alemanha', 'Reino Unido', 'Irlanda', 'Suíça', 'Estados Unidos', 'Canadá', 'Outro país'],
     objectives: ['Moradia', 'Férias', 'Investimento', 'Ainda estou avaliando'],
     // Definir faixas reais com a Pri antes da captação. Sem valores comerciais inventados.
-    investmentRanges: ['Prefiro conversar com a Pri', 'Ainda estou definindo'],
+    investmentRanges: ['Até R$ 500 mil', 'R$ 500 mil a R$ 800 mil', 'R$ 800 mil a R$ 1 milhão', 'Acima de R$ 1 milhão', 'Prefiro conversar com a Pri', 'Ainda estou avaliando'],
     interests: ['Galileu Residence', 'Outras opções em Itapema', 'Ainda estou avaliando'],
     consent: 'Autorizo o contato sobre meu interesse em imóveis e o tratamento dos dados para essa finalidade.',
     consentVersion: 'rascunho-2026-11-13',
