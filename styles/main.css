@@ -45,3 +45,8 @@
 .contact-copy>p{line-height:1.5}
 .contact-copy>p{white-space:pre-line}
  
+
+/* Quebras editoriais do convite: linhas fixas no desktop e fluxo natural no mobile. */
+.contact-copy .contact-paragraph{display:block}
+.contact-copy .contact-paragraph+.contact-paragraph{margin-top:22px}
+@media(max-width:767px){.contact-copy .desktop-only{display:none}.contact-copy .contact-paragraph+.contact-paragraph{margin-top:18px}}
