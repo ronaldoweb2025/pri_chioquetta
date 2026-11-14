@@ -60,6 +60,7 @@ function doPost(e) {
         utm_term: t(p.utm_term)
       }));
     } finally {
+      SpreadsheetApp.flush();
       lock.releaseLock();
     }
 
