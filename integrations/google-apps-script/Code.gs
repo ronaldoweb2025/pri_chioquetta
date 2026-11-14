@@ -4,19 +4,19 @@ var DEFAULT_SPREADSHEET_ID = '16NO-6dfCGy9Zk5fI0Gg4FLYMCCLHoPf8EKkegxXtCnU';
 function json_(value) { return ContentService.createTextOutput(JSON.stringify(value)).setMimeType(ContentService.MimeType.JSON); }
 function doGet() { return json_({ok:true,service:'Pri Chioquetta Leads'}); }
 function clean_(value,max,required) {
-  var s=String(value||'').replace(/[\\u0000-\\u001f\\u007f]/g,' ').trim().replace(/\\s+/g,' ');
+  var s=String(value||'').replace(/[\u0000-\u001f\u007f]/g,' ').trim().replace(/\s+/g,' ');
   if(s.length>max || (required&&!s)) throw new Error('invalid_data');
   return s;
 }
-function safe_(value) { return /^[=+\\-@]/.test(value) ? "'"+value : value; }
+function safe_(value) { return /^[=+\-@]/.test(value) ? "'"+value : value; }
 function doPost(e) {
   var lock;
   try {
     var p=(e&&e.parameter)||{};
     var name=clean_(p.name,100,true), country=clean_(p.country,80,true);
-    var whatsapp=clean_(p.whatsapp,20,true).replace(/[\\s().-]/g,'');
+    var whatsapp=clean_(p.whatsapp,20,true).replace(/[\s().-]/g,'');
     var objective=clean_(p.objective,80,true);
-    if(name.length<2 || !/^\\+[1-9]\\d{7,14}$/.test(whatsapp) || p.consent!=='true') throw new Error('invalid_data');
+    if(name.length<2 || !/^\+[1-9]\d{7,14}$/.test(whatsapp) || p.consent!=='true') throw new Error('invalid_data');
     if(['Moradia','Férias','Investimento','Ainda estou avaliando'].indexOf(objective)<0) throw new Error('invalid_data');
     var props=PropertiesService.getScriptProperties();
     var ss=SpreadsheetApp.openById(props.getProperty('SPREADSHEET_ID')||DEFAULT_SPREADSHEET_ID);
