@@ -46,6 +46,6 @@ function doPost(e) {
     sheet.getRange(target,map['Recebido em']+1).setNote(JSON.stringify(metadata));
     sheet.getRange(target,1,1,EXPECTED_HEADERS.length).setValues([row]); SpreadsheetApp.flush();
     return json_({ok:true,saved:true});
-  } catch(err) { return json_({ok:false,code:String(err&&err.message||'write_failed').slice(0,60)}); }
+  } catch(err) { console.error('doPost failed: ' + String(err&&err.stack||err)); return json_({ok:false,code:String(err&&err.message||'write_failed').slice(0,60)}); }
   finally { if(lock&&lock.hasLock())lock.releaseLock(); }
 }
