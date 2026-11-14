@@ -30,20 +30,38 @@ function doPost(e) {
       ''
     ];
 
-    sheet.appendRow(row);
-    var lastRow = sheet.getLastRow();
-    sheet.getRange(lastRow, 1).setNote(JSON.stringify({
-      consent_at: t(p.consent_at),
-      consent_version: t(p.consent_version),
-      consent_text: t(p.consent_text),
-      investment: t(p.investment),
-      interest: t(p.interest),
-      utm_source: t(p.utm_source),
-      utm_medium: t(p.utm_medium),
-      utm_campaign: t(p.utm_campaign),
-      utm_content: t(p.utm_content),
-      utm_term: t(p.utm_term)
-    }));
+    var lock = LockService.getScriptLock();
+    lock.waitLock(10000);
+    try {
+      var max = sheet.getMaxRows();
+      var target = 0;
+      if (max > 1) {
+        var names = sheet.getRange(2, 2, max - 1, 1).getValues();
+        for (var i = 0; i < names.length; i++) {
+          if (names[i][0] === '') { target = i + 2; break; }
+        }
+      }
+      if (!target) {
+        sheet.insertRowAfter(max);
+        target = max + 1;
+      }
+
+      sheet.getRange(target, 1, 1, row.length).setValues([row]);
+      sheet.getRange(target, 1).setNote(JSON.stringify({
+        consent_at: t(p.consent_at),
+        consent_version: t(p.consent_version),
+        consent_text: t(p.consent_text),
+        investment: t(p.investment),
+        interest: t(p.interest),
+        utm_source: t(p.utm_source),
+        utm_medium: t(p.utm_medium),
+        utm_campaign: t(p.utm_campaign),
+        utm_content: t(p.utm_content),
+        utm_term: t(p.utm_term)
+      }));
+    } finally {
+      lock.releaseLock();
+    }
 
     return ContentService.createTextOutput('ok');
   } catch (err) {
