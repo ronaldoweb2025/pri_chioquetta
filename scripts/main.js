@@ -89,31 +89,20 @@
       if (form.dataset.mode === 'preview') { showMessage(result.dataset.message); return; }
       if (form.dataset.mode !== 'live') { showMessage(form.dataset.error); return; }
       const data = new FormData(form);
-      const payload = Object.fromEntries(['name','country','whatsapp','objective','investment','interest','website','consent_version','utm_source','utm_medium','utm_campaign','utm_content','utm_term'].map(key => [key, String(data.get(key) || '')]));
-      payload.consent = form.elements.consent.checked;
-      payload.started_at = startedAt;
-      // Manter o ID se a resposta se perder. Alterar dados gera uma nova operação.
-      const fingerprint = JSON.stringify(payload);
-      if (!submission || submission.fingerprint !== fingerprint) {
-        try { submission = {fingerprint, id:crypto.randomUUID()}; }
-        catch { showMessage(form.dataset.error); return; }
-      }
-      payload.request_id = submission.id;
+      data.set('consent', form.elements.consent.checked ? 'true' : 'false');
+      data.set('consent_at', new Date().toISOString());
+      data.set('consent_text', form.elements.consent.closest('.consent').innerText.trim());
       sending = true; submit.disabled = true; submit.textContent = form.dataset.sending;
       form.setAttribute('aria-busy','true'); result.hidden = true;
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), 30000);
       try {
-        const response = await fetch(form.dataset.endpoint, {method:'POST', credentials:'same-origin', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload), signal:controller.signal});
-        let receipt; try { receipt = await response.json(); } catch { receipt = null; }
-        if (response.ok && receipt?.ok === true && receipt.saved === true && receipt.request_id === payload.request_id) {
-          showMessage(form.dataset.success);
-        } else if (response.status === 429) {
-          showMessage('Você já tentou algumas vezes. Aguarde alguns minutos antes de tentar novamente. Seus dados continuam preenchidos.');
-        } else if (response.status === 422) {
-          showMessage('Confira os campos e o aceite de contato antes de tentar novamente. Seus dados continuam preenchidos.');
-        } else { showMessage(form.dataset.error); }
-      } catch { showMessage(form.dataset.error); }
+        // Envio direto ao Apps Script, no mesmo padrão simples do site-teste-imersao.
+        // Em no-cors o navegador não expõe o recibo do Google ao JavaScript.
+        await fetch(form.dataset.endpoint, {method:'POST', body:data, mode:'no-cors'});
+        showMessage('Seu formulário foi enviado. A equipe da Pri poderá entrar em contato pelo WhatsApp informado.');
+        form.reset();
+      } catch {
+        showMessage(form.dataset.error);
+      }
       finally {
         clearTimeout(timer); sending = false; submit.disabled = false; submit.textContent = originalLabel;
         form.removeAttribute('aria-busy');
