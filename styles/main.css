@@ -51,6 +51,5 @@
 .contact-copy .contact-paragraph+.contact-paragraph{margin-top:22px}
 @media(max-width:767px){.contact-copy .desktop-only{display:none}.contact-copy .contact-paragraph+.contact-paragraph{margin-top:18px}}
 
-/* Quebra editorial da descrição principal: fixa no desktop, fluida no mobile. */
-.hero-description-mobile{display:none}
-@media(max-width:767px){.hero-description-desktop{display:none}.hero-description-mobile{display:inline}}
+/* A quebra do texto do hero aparece apenas no desktop. */
+@media(max-width:767px){.hero-description .desktop-only{display:none}}
