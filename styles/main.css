@@ -53,3 +53,38 @@
 
 /* A quebra do texto do hero aparece apenas no desktop. */
 @media(max-width:767px){.hero-description .desktop-only{display:none}}
+
+/* Cabeçalho fixo e navegação por seções em todas as telas */
+html{scroll-padding-top:112px}
+body{padding-top:104px}
+.site-header{
+  position:fixed;inset:0 0 auto;z-index:1000;
+  min-height:104px;height:104px;padding:12px clamp(20px,5vw,70px);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  background:var(--sand);border-bottom:1px solid var(--border);
+  box-shadow:0 3px 16px rgba(21,54,61,.08)
+}
+.site-header .brand{flex:0 0 auto}
+.site-header .brand-logo{width:clamp(165px,18vw,225px);max-height:76px}
+.site-nav{display:flex;align-items:center;justify-content:flex-end;gap:clamp(12px,2vw,28px);min-width:0}
+.site-nav a{font-size:15px;font-weight:600;text-decoration:none;white-space:nowrap;color:var(--ink);padding:9px 0}
+.site-nav a:hover{color:#8a633c}
+.site-nav .nav-cta{background:var(--petrol);color:white;padding:10px 16px;border-radius:4px}
+.site-nav .nav-cta:hover{background:#244c54;color:white}
+#inicio,#sobre-pri,#imovel,#galeria,#interesse{scroll-margin-top:120px}
+@media(max-width:900px){
+  html{scroll-padding-top:118px}
+  body{padding-top:118px}
+  .site-header{height:118px;min-height:118px;padding:9px 22px;flex-direction:column;justify-content:center;gap:3px}
+  .site-header .brand-logo{width:164px;max-height:53px}
+  .site-nav{width:100%;justify-content:flex-start;gap:22px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;padding:1px 0 4px}
+  .site-nav::-webkit-scrollbar{display:none}
+  .site-nav a{font-size:13px;padding:5px 0}
+  .site-nav .nav-cta{padding:6px 11px}
+  #inicio,#sobre-pri,#imovel,#galeria,#interesse{scroll-margin-top:130px}
+}
+@media(max-width:380px){
+  .site-header{padding-inline:14px}
+  .site-nav{gap:17px}
+  .site-nav a{font-size:12px}
+}
