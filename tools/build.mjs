@@ -41,6 +41,7 @@ const replacements = {
   values: c.motivations.map(item => `<p>${escape(item.eyebrow)}</p>`).join(''),
   brokerEyebrow: escape(c.broker.eyebrow), brokerTitle: escape(c.broker.title), brokerText: escape(c.broker.text),
   brokerName: escape(c.broker.name), brokerRole: escape(c.broker.role), brokerCreci: escape(c.broker.creci),
+  floatingWhatsapp: c.broker.whatsapp && /^\+?[1-9]\d{7,14}$/.test(c.broker.whatsapp) ? '<a class="whatsapp-float" href="https://wa.me/' + c.broker.whatsapp.replace('+','') + '?text=' + encodeURIComponent('Olá, Pri! Conheci seu site e gostaria de conhecer as oportunidades de imóveis em Itapema. Pode me ajudar?') + '" target="_blank" rel="noopener noreferrer" aria-label="Fale diretamente com a Pri pelo WhatsApp"><span class="whatsapp-float-icon" aria-hidden="true">◉</span><span>Fale diretamente com a Pri</span></a>' : '',
   whatsappLink: c.broker.whatsapp && /^\+?[1-9]\d{7,14}$/.test(c.broker.whatsapp) ? `<a href="https://wa.me/${escape(c.broker.whatsapp.replace('+',''))}" target="_blank" rel="noopener noreferrer">WhatsApp da Pri (abre em nova aba)</a>` : '',
   brokerImage: picture(c.broker.image, '(max-width: 767px) 140px, (max-width: 1100px) 235px, 275px'),
   propertyEyebrow: escape(c.property.eyebrow), propertyName: escape(c.property.name), propertyDescription: escape(c.property.description),
