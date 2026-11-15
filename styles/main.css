@@ -97,3 +97,11 @@ body{padding-top:104px}
 .whatsapp-float:focus-visible{outline:3px solid #15363d;outline-offset:4px}
 @media(max-width:767px){.whatsapp-float{right:14px;bottom:14px;padding:13px 16px;font-size:13px}}
 @media(prefers-reduced-motion:reduce){.whatsapp-float{transition:none}}
+
+
+/* CTA do WhatsApp no rodapé: mantém o contato visível sem competir com o formulário */
+.footer-whatsapp{display:inline-flex;align-items:center;justify-content:center;padding:11px 17px;border-radius:999px;background:#20b85a;color:#fff!important;text-decoration:none;font-weight:700;font-size:14px;white-space:nowrap;box-shadow:0 3px 12px rgba(0,0,0,.12);transition:background .2s ease,transform .2s ease}
+.footer-whatsapp:hover{background:#159447;transform:translateY(-1px)}
+.footer-whatsapp:focus-visible{outline:3px solid #15363d;outline-offset:4px}
+@media(max-width:767px){.footer-whatsapp{font-size:13px;padding:10px 14px}}
+@media(prefers-reduced-motion:reduce){.footer-whatsapp{transition:none}}
