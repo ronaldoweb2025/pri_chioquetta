@@ -69,8 +69,8 @@
     function buildWhatsappUrl() {
       const contactLink = document.querySelector('.footer-whatsapp');
       if (!contactLink) return null;
-      const phoneNumber = new URL(contactLink.href).pathname.replace(/\\D/g, '');
-      if (!/^[1-9]\\d{7,14}$/.test(phoneNumber)) return null;
+      const phoneNumber = new URL(contactLink.href).pathname.replace(/\D/g, '');
+      if (!/^[1-9]\d{7,14}$/.test(phoneNumber)) return null;
 
       const details = [
         'Olá, Pri! Acabei de enviar meu interesse pela sua página.',
@@ -84,7 +84,7 @@
       if (investment) details.push(`Faixa de investimento: ${investment}`);
       details.push('Podemos conversar sobre as oportunidades em Itapema?');
 
-      return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(details.join('\\n'))}`;
+      return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(details.join('\n'))}`;
     }
     function showSuccess(message) {
       showMessage(message);
