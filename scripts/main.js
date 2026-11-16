@@ -93,6 +93,9 @@
 
       const link = document.createElement('a');
       link.className = 'form-whatsapp-cta';
+      link.style.whiteSpace = 'nowrap';
+      link.style.width = 'max-content';
+      link.style.maxWidth = '100%';
       link.href = href;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
@@ -102,6 +105,10 @@
       whatsappIcon.setAttribute('viewBox', '0 0 24 24');
       whatsappIcon.setAttribute('width', '20');
       whatsappIcon.setAttribute('height', '20');
+      whatsappIcon.style.display = 'block';
+      whatsappIcon.style.width = '20px';
+      whatsappIcon.style.height = '20px';
+      whatsappIcon.style.flex = '0 0 20px';
       whatsappIcon.setAttribute('fill', 'none');
       whatsappIcon.setAttribute('stroke', 'currentColor');
       whatsappIcon.setAttribute('stroke-width', '1.8');
@@ -118,6 +125,7 @@
 
       const buttonLabel = document.createElement('span');
       buttonLabel.textContent = 'Conversar com a Pri agora';
+      buttonLabel.style.whiteSpace = 'nowrap';
       link.append(whatsappIcon, buttonLabel);
 
       const buttonWrap = document.createElement('div');
