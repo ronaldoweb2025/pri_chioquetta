@@ -97,7 +97,10 @@
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
       link.textContent = 'Conversar com a Pri agora';
-      result.append(document.createElement('br'), link);
+      const buttonWrap = document.createElement('div');
+      buttonWrap.className = 'form-whatsapp-cta-wrap';
+      buttonWrap.append(link);
+      result.append(buttonWrap);
     }
     function validatePhone() {
       const value = phone.value.trim();
