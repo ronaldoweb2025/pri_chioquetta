@@ -77,7 +77,7 @@ export default {
     endpoint: 'https://script.google.com/macros/s/AKfycbxB2wrY8YYlaxiyjaI9UYWTg7-lpuL7Xj8cUI1XeDUX79F0FQGAPhV37rndaAyLeaal/exec',
     // Alterar para live somente com secrets, Apps Script e publicação autorizados.
     liveNote: 'Seus dados serão usados para atender ao interesse informado.',
-    successMessage: 'Que bom receber seu interesse! 😊\\nQuer conhecer melhor as oportunidades em Itapema? Converse diretamente com a Pri pelo WhatsApp.',
+    successMessage: 'Que bom receber seu interesse! 😊\nQuer conhecer melhor as oportunidades em Itapema? Converse diretamente com a Pri pelo WhatsApp.',
     errorMessage: 'Não foi possível confirmar o envio agora. Seus dados continuam preenchidos. Tente novamente em instantes.',
     sendingLabel: 'Enviando…',
     countries: ['Portugal', 'Brasil', 'Itália', 'Espanha', 'França', 'Alemanha', 'Reino Unido', 'Irlanda', 'Suíça', 'Estados Unidos', 'Canadá', 'Outro país'],
