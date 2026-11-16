@@ -30,8 +30,8 @@ export default {
   ],
   broker: {
     name: 'Priscila Charlise Chioquetta', role: 'Corretora de Imóveis', creci: 'CRECI-SC 78854F',
-    // Sem número fornecido: não gerar um link de WhatsApp fictício.
-    whatsapp: '+554691387920',
+    // Número profissional confirmado pela Pri.
+    whatsapp: '+393444678906',
     eyebrow: 'Conheça a Pri',
     title: 'Uma conversa com quem vai acompanhar seus planos.',
     text: 'Sou Priscila Charlise Chioquetta, corretora de imóveis em Itapema. Quero entender o que você procura e apresentar oportunidades que façam sentido para seus planos, seja para aproveitar férias, investir ou ter um endereço especial no Brasil, mesmo que hoje você esteja em outro país.',
@@ -77,7 +77,7 @@ export default {
     endpoint: 'https://script.google.com/macros/s/AKfycbxB2wrY8YYlaxiyjaI9UYWTg7-lpuL7Xj8cUI1XeDUX79F0FQGAPhV37rndaAyLeaal/exec',
     // Alterar para live somente com secrets, Apps Script e publicação autorizados.
     liveNote: 'Seus dados serão usados para atender ao interesse informado.',
-    successMessage: 'Recebemos seu interesse. A Pri fará contato pelo WhatsApp informado.',
+    successMessage: 'Que bom receber seu interesse! 😊\nQuer conhecer melhor as oportunidades em Itapema?\nConverse diretamente com a Pri pelo WhatsApp.',
     errorMessage: 'Não foi possível confirmar o envio agora. Seus dados continuam preenchidos. Tente novamente em instantes.',
     sendingLabel: 'Enviando…',
     countries: ['Portugal', 'Brasil', 'Itália', 'Espanha', 'França', 'Alemanha', 'Reino Unido', 'Irlanda', 'Suíça', 'Estados Unidos', 'Canadá', 'Outro país'],
