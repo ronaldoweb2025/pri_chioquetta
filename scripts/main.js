@@ -96,7 +96,7 @@
       link.href = href;
       link.target = '_blank';
       link.rel = 'noopener noreferrer';
-      link.textContent = 'Conversar com a Pri pelo WhatsApp';
+      link.textContent = 'Conversar com a Pri agora';
       result.append(document.createElement('br'), link);
     }
     function validatePhone() {
