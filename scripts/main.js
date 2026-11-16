@@ -66,6 +66,39 @@
       result.focus({preventScroll:true});
       result.scrollIntoView({block:'nearest', behavior:reduceMotion.matches ? 'instant' : 'smooth'});
     }
+    function buildWhatsappUrl() {
+      const contactLink = document.querySelector('.footer-whatsapp');
+      if (!contactLink) return null;
+      const phoneNumber = new URL(contactLink.href).pathname.replace(/\\D/g, '');
+      if (!/^[1-9]\\d{7,14}$/.test(phoneNumber)) return null;
+
+      const details = [
+        'Olá, Pri! Acabei de enviar meu interesse pela sua página.',
+        `Nome: ${form.elements.name.value.trim()}`,
+        `País: ${form.elements.country.value}`,
+        `Objetivo: ${form.elements.objective.value}`
+      ];
+      const interest = form.elements.interest?.value.trim();
+      const investment = form.elements.investment?.value.trim();
+      if (interest) details.push(`Interesse: ${interest}`);
+      if (investment) details.push(`Faixa de investimento: ${investment}`);
+      details.push('Podemos conversar sobre as oportunidades em Itapema?');
+
+      return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(details.join('\\n'))}`;
+    }
+    function showSuccess(message) {
+      showMessage(message);
+      const href = buildWhatsappUrl();
+      if (!href) return;
+
+      const link = document.createElement('a');
+      link.className = 'form-whatsapp-cta';
+      link.href = href;
+      link.target = '_blank';
+      link.rel = 'noopener noreferrer';
+      link.textContent = 'Conversar com a Pri pelo WhatsApp';
+      result.append(document.createElement('br'), link);
+    }
     function validatePhone() {
       const value = phone.value.trim();
       // Forma internacional; não presume o DDI pelo país de residência.
@@ -98,7 +131,7 @@
         // Envio direto ao Apps Script, no mesmo padrão simples do site-teste-imersao.
         // Em no-cors o navegador não expõe o recibo do Google ao JavaScript.
         await fetch(form.dataset.endpoint, {method:'POST', body:new URLSearchParams(data), mode:'no-cors'});
-        showMessage(form.dataset.success);
+        showSuccess(form.dataset.success);
         // Mede formulário válido enviado; no-cors não confirma a gravação no Sheets.
         // O rastreamento é independente do atendimento e não recebe os campos do lead.
         document.dispatchEvent(new CustomEvent('pri:interest-submitted'));
