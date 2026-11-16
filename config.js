@@ -6,7 +6,7 @@ export default {
     description: 'Conheça o Galileu Residence e converse com Priscila Charlise Chioquetta sobre férias, moradia e seus planos de ter um imóvel em Itapema, Santa Catarina.',
     // Endereço pretendido. Não houve configuração de domínio.
     siteUrl: 'https://prichioquetta.com.br',
-    allowIndexing: false,
+    allowIndexing: true,
     ogImage: 'assets/images/compartilhamento-itapema.jpg'
   },
   cta: { label: 'Quero conhecer as oportunidades', href: '#interesse' },
