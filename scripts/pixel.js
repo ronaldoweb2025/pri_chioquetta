@@ -1,7 +1,22 @@
-// Pixel da Meta: carregado apenas após a escolha de cookies de publicidade.
+// Meta e Google Analytics: carregados apenas após a autorização de cookies.
 (() => {
   const pixelId = '2379760082766894';
-  const key = 'pri-marketing-consent-v1';
+  const key = 'pri-marketing-consent-v2';
+  const measurementId = 'G-LWXNKQVCG3';
+  let analyticsInitialized = false;
+  function enableAnalytics() {
+    window['ga-disable-' + measurementId] = false;
+    if (analyticsInitialized) return;
+    analyticsInitialized = true;
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', measurementId, {allow_google_signals: false, allow_ad_personalization_signals: false});
+    const tag = document.createElement('script');
+    tag.async = true;
+    tag.src = 'https://www.googletagmanager.com/gtag/js?id=' + measurementId;
+    document.head.appendChild(tag);
+  }
   const banner = document.querySelector('#marketing-consent');
   if (!banner) return;
   let choice = null;
@@ -16,6 +31,7 @@
   });
   try { const saved = JSON.parse(localStorage.getItem(key)); if (saved && Date.now() - saved.at < 180 * 86400000) choice = saved.value; } catch {}
   function enable() {
+    enableAnalytics();
     if (initialized) { window.fbq('consent', 'grant'); return; }
     initialized = true;
     !function(f,b,e,v,n,t,s) {
@@ -36,7 +52,10 @@
     try { localStorage.setItem(key, JSON.stringify({value, at: Date.now()})); } catch {}
     banner.hidden = true;
     if (value === 'accepted') enable();
-    else if (initialized) window.fbq('consent', 'revoke');
+    else {
+      window['ga-disable-' + measurementId] = true;
+      if (initialized) window.fbq('consent', 'revoke');
+    }
   }
   banner.querySelector('[data-marketing-accept]').addEventListener('click', () => save('accepted'));
   banner.querySelector('[data-marketing-reject]').addEventListener('click', () => save('rejected'));
