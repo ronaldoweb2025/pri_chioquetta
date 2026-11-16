@@ -100,6 +100,8 @@
       const whatsappIcon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       whatsappIcon.setAttribute('class', 'form-whatsapp-icon');
       whatsappIcon.setAttribute('viewBox', '0 0 24 24');
+      whatsappIcon.setAttribute('width', '20');
+      whatsappIcon.setAttribute('height', '20');
       whatsappIcon.setAttribute('fill', 'none');
       whatsappIcon.setAttribute('stroke', 'currentColor');
       whatsappIcon.setAttribute('stroke-width', '1.8');
